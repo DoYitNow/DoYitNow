@@ -1,0 +1,187 @@
+<svg width="1200" height="560" viewBox="0 0 1200 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Animated line-art interface study</title>
+  <desc id="desc">A monochrome human-computer interface drawn with thin animated lines, nodes, language bars, and perception fields.</desc>
+  <defs>
+    <linearGradient id="fade" x1="0" x2="1200" y1="0" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f7f7f7" stop-opacity="0"/>
+      <stop offset=".18" stop-color="#f7f7f7"/>
+      <stop offset=".82" stop-color="#f7f7f7"/>
+      <stop offset="1" stop-color="#f7f7f7" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="1.6"/>
+    </filter>
+    <style>
+      :root {
+        --paper: #050505;
+        --ink: #ededed;
+        --mid: #8c8c8c;
+        --dim: #3f3f3f;
+      }
+
+      svg {
+        background: var(--paper);
+      }
+
+      .hair {
+        stroke: var(--ink);
+        stroke-width: 1.1;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .quiet {
+        stroke: var(--mid);
+        stroke-width: .9;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .ghost {
+        stroke: var(--dim);
+        stroke-width: .8;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .draw {
+        stroke-dasharray: 1200;
+        stroke-dashoffset: 1200;
+        animation: draw 7.6s cubic-bezier(.52, 0, .18, 1) infinite;
+      }
+
+      .draw.slow {
+        animation-duration: 10.5s;
+        animation-delay: -2.2s;
+      }
+
+      .draw.late {
+        animation-delay: -4.6s;
+      }
+
+      .pulse {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: pulse 4.4s ease-in-out infinite;
+      }
+
+      .pulse:nth-of-type(2n) {
+        animation-delay: -1.8s;
+      }
+
+      .drift {
+        animation: drift 9s ease-in-out infinite;
+      }
+
+      .drift.alt {
+        animation-delay: -4.5s;
+      }
+
+      .scan {
+        animation: scan 6.5s ease-in-out infinite;
+      }
+
+      .blink {
+        animation: blink 5s steps(1, end) infinite;
+      }
+
+      @keyframes draw {
+        0% { stroke-dashoffset: 1200; opacity: .12; }
+        22% { opacity: .78; }
+        52% { stroke-dashoffset: 0; opacity: .9; }
+        78% { stroke-dashoffset: -1200; opacity: .42; }
+        100% { stroke-dashoffset: -1200; opacity: .12; }
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: .34; transform: scale(.88); }
+        48% { opacity: .95; transform: scale(1.05); }
+      }
+
+      @keyframes drift {
+        0%, 100% { transform: translateX(0); opacity: .34; }
+        50% { transform: translateX(34px); opacity: .84; }
+      }
+
+      @keyframes scan {
+        0%, 100% { transform: translateX(-190px); opacity: 0; }
+        18%, 76% { opacity: .55; }
+        50% { transform: translateX(190px); opacity: .8; }
+      }
+
+      @keyframes blink {
+        0%, 58%, 100% { opacity: .28; }
+        59%, 68% { opacity: .9; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .draw,
+        .pulse,
+        .drift,
+        .scan,
+        .blink {
+          animation: none;
+        }
+
+        .draw {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="560" fill="#050505"/>
+  <path d="M96 84H1104" class="ghost"/>
+  <path d="M96 476H1104" class="ghost"/>
+  <path d="M148 132H1052V430H148V132Z" class="quiet"/>
+  <path d="M188 172H482V390H188V172Z" class="ghost"/>
+  <path d="M530 172H1012V390H530V172Z" class="ghost"/>
+
+  <g opacity=".72">
+    <path d="M226 224C276 176 348 178 400 230C450 282 440 350 388 374C336 398 252 372 226 310C208 268 206 244 226 224Z" class="hair draw"/>
+    <path d="M240 284C282 256 333 254 376 286" class="quiet draw late"/>
+    <path d="M278 326C312 342 344 342 376 326" class="quiet draw slow"/>
+    <circle cx="310" cy="280" r="7" fill="#ededed" class="pulse"/>
+    <circle cx="375" cy="280" r="4" fill="#8c8c8c" class="pulse"/>
+  </g>
+
+  <g class="drift">
+    <path d="M580 224H746" class="hair draw slow"/>
+    <path d="M580 256H872" class="quiet draw late"/>
+    <path d="M580 288H792" class="quiet draw"/>
+    <path d="M580 320H940" class="ghost draw slow"/>
+  </g>
+
+  <g class="drift alt">
+    <path d="M810 220C860 202 926 206 966 250C1004 292 994 344 950 366C902 390 838 372 812 326" class="quiet draw"/>
+    <path d="M858 280H958" class="hair draw late"/>
+    <path d="M902 232V360" class="ghost draw slow"/>
+  </g>
+
+  <g>
+    <path d="M482 280C520 254 548 254 580 280" class="quiet draw late"/>
+    <path d="M746 224C774 198 804 198 832 224" class="ghost draw slow"/>
+    <path d="M792 288C822 318 850 318 880 288" class="ghost draw"/>
+    <circle cx="482" cy="280" r="3.5" fill="#ededed" class="pulse"/>
+    <circle cx="580" cy="280" r="3.5" fill="#ededed" class="pulse"/>
+    <circle cx="746" cy="224" r="3" fill="#8c8c8c" class="pulse"/>
+    <circle cx="832" cy="224" r="3" fill="#8c8c8c" class="pulse"/>
+  </g>
+
+  <g class="scan">
+    <rect x="504" y="150" width="18" height="258" fill="url(#fade)" opacity=".18" filter="url(#soft)"/>
+    <path d="M512 150V408" stroke="#f7f7f7" stroke-opacity=".42" stroke-width=".8"/>
+  </g>
+
+  <g opacity=".58">
+    <path d="M148 132L188 172" class="ghost"/>
+    <path d="M1052 132L1012 172" class="ghost"/>
+    <path d="M148 430L188 390" class="ghost"/>
+    <path d="M1052 430L1012 390" class="ghost"/>
+  </g>
+
+  <g class="blink">
+    <path d="M212 418H244" class="hair"/>
+    <path d="M956 418H988" class="hair"/>
+  </g>
+
+  <text x="148" y="106" fill="#8c8c8c" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" letter-spacing="2">HUMAN / MACHINE / LANGUAGE / PERCEPTION</text>
+  <text x="902" y="456" fill="#5f5f5f" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" letter-spacing="2">INTERFACE STUDY 00</text>
+</svg>
