@@ -52,686 +52,686 @@
 
       @keyframes final-fill-cycle {
         0%, 55.1602% { opacity: 0; }
-        57.1174%, 99.8% { opacity: 1; }
-        100% { opacity: 0; }
+        57.1174%, 91.1032% { opacity: 1; }
+        91.1033%, 100% { opacity: 0; }
       }
 
       @keyframes z-erase-cycle {
         0%, 83.8078% { opacity: 0; stroke-dashoffset: 1; }
         83.8968% { opacity: 1; stroke-dashoffset: 1; }
-        90.7473%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        90.7473%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
       @keyframes clear-cycle {
         0%, 91.1032% { opacity: 0; }
-        91.1922%, 99.8% { opacity: 1; }
+        91.1922%, 99.999% { opacity: 1; }
         100% { opacity: 0; }
       }
 
 @keyframes draw-000 {
         0%, 0.7473% { opacity: 0; stroke-dashoffset: 1; }
         0.7829% { opacity: 1; stroke-dashoffset: 1; }
-        2.2153%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        2.2153%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-001 {
         0%, 2.2686% { opacity: 0; stroke-dashoffset: 1; }
         2.3043% { opacity: 1; stroke-dashoffset: 1; }
-        2.5623%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        2.5623%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-002 {
         0%, 2.6157% { opacity: 0; stroke-dashoffset: 1; }
         2.6512% { opacity: 1; stroke-dashoffset: 1; }
-        2.8559%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        2.8559%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-003 {
         0%, 2.9004% { opacity: 0; stroke-dashoffset: 1; }
         2.936% { opacity: 1; stroke-dashoffset: 1; }
-        3.1406%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        3.1406%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-004 {
         0%, 3.194% { opacity: 0; stroke-dashoffset: 1; }
         3.2295% { opacity: 1; stroke-dashoffset: 1; }
-        4.1192%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        4.1192%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-005 {
         0%, 4.1637% { opacity: 0; stroke-dashoffset: 1; }
         4.1993% { opacity: 1; stroke-dashoffset: 1; }
-        4.5819%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        4.5819%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-006 {
         0%, 4.6441% { opacity: 0; stroke-dashoffset: 1; }
         4.6797% { opacity: 1; stroke-dashoffset: 1; }
-        4.9644%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        4.9644%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-007 {
         0%, 5.0089% { opacity: 0; stroke-dashoffset: 1; }
         5.0445% { opacity: 1; stroke-dashoffset: 1; }
-        5.347%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        5.347%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-008 {
         0%, 5.3737% { opacity: 0; stroke-dashoffset: 1; }
         5.4092% { opacity: 1; stroke-dashoffset: 1; }
-        5.7295%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        5.7295%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-009 {
         0%, 5.7829% { opacity: 0; stroke-dashoffset: 1; }
         5.8185% { opacity: 1; stroke-dashoffset: 1; }
-        6.8238%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        6.8238%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-010 {
         0%, 6.8772% { opacity: 0; stroke-dashoffset: 1; }
         6.9128% { opacity: 1; stroke-dashoffset: 1; }
-        7.2687%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        7.2687%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-011 {
         0%, 7.3132% { opacity: 0; stroke-dashoffset: 1; }
         7.3487% { opacity: 1; stroke-dashoffset: 1; }
-        7.5534%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        7.5534%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-012 {
         0%, 7.6068% { opacity: 0; stroke-dashoffset: 1; }
         7.6423% { opacity: 1; stroke-dashoffset: 1; }
-        7.847%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        7.847%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-013 {
         0%, 7.8915% { opacity: 0; stroke-dashoffset: 1; }
         7.927% { opacity: 1; stroke-dashoffset: 1; }
-        8.1317%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        8.1317%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-014 {
         0%, 8.1851% { opacity: 0; stroke-dashoffset: 1; }
         8.2206% { opacity: 1; stroke-dashoffset: 1; }
-        8.9323%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        8.9323%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-015 {
         0%, 8.968% { opacity: 0; stroke-dashoffset: 1; }
         9.0035% { opacity: 1; stroke-dashoffset: 1; }
-        9.2082%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        9.2082%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-016 {
         0%, 9.2704% { opacity: 0; stroke-dashoffset: 1; }
         9.3061% { opacity: 1; stroke-dashoffset: 1; }
-        9.5107%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        9.5107%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-017 {
         0%, 9.5463% { opacity: 0; stroke-dashoffset: 1; }
         9.5818% { opacity: 1; stroke-dashoffset: 1; }
-        9.7865%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        9.7865%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-018 {
         0%, 9.8399% { opacity: 0; stroke-dashoffset: 1; }
         9.8754% { opacity: 1; stroke-dashoffset: 1; }
-        10.0801%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        10.0801%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-019 {
         0%, 10.1157% { opacity: 0; stroke-dashoffset: 1; }
         10.1513% { opacity: 1; stroke-dashoffset: 1; }
-        10.7474%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        10.7474%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-020 {
         0%, 10.7918% { opacity: 0; stroke-dashoffset: 1; }
         10.8274% { opacity: 1; stroke-dashoffset: 1; }
-        11.7082%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        11.7082%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-021 {
         0%, 11.7527% { opacity: 0; stroke-dashoffset: 1; }
         11.7882% { opacity: 1; stroke-dashoffset: 1; }
-        11.9929%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        11.9929%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-022 {
         0%, 12.0462% { opacity: 0; stroke-dashoffset: 1; }
         12.0819% { opacity: 1; stroke-dashoffset: 1; }
-        12.2864%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        12.2864%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-023 {
         0%, 12.331% { opacity: 0; stroke-dashoffset: 1; }
         12.3665% { opacity: 1; stroke-dashoffset: 1; }
-        12.5712%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        12.5712%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-024 {
         0%, 12.6245% { opacity: 0; stroke-dashoffset: 1; }
         12.6602% { opacity: 1; stroke-dashoffset: 1; }
-        12.9893%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        12.9893%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-025 {
         0%, 13.0427% { opacity: 0; stroke-dashoffset: 1; }
         13.0782% { opacity: 1; stroke-dashoffset: 1; }
-        13.2829%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        13.2829%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-026 {
         0%, 13.3274% { opacity: 0; stroke-dashoffset: 1; }
         13.363% { opacity: 1; stroke-dashoffset: 1; }
-        13.5676%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        13.5676%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-027 {
         0%, 13.621% { opacity: 0; stroke-dashoffset: 1; }
         13.6566% { opacity: 1; stroke-dashoffset: 1; }
-        13.8612%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        13.8612%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-028 {
         0%, 13.9057% { opacity: 0; stroke-dashoffset: 1; }
         13.9412% { opacity: 1; stroke-dashoffset: 1; }
-        14.1459%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        14.1459%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-029 {
         0%, 14.1993% { opacity: 0; stroke-dashoffset: 1; }
         14.2349% { opacity: 1; stroke-dashoffset: 1; }
-        14.6086%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        14.6086%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-030 {
         0%, 14.6531% { opacity: 0; stroke-dashoffset: 1; }
         14.6886% { opacity: 1; stroke-dashoffset: 1; }
-        16.121%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        16.121%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-031 {
         0%, 16.1655% { opacity: 0; stroke-dashoffset: 1; }
         16.2011% { opacity: 1; stroke-dashoffset: 1; }
-        17.6334%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        17.6334%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-032 {
         0%, 17.6868% { opacity: 0; stroke-dashoffset: 1; }
         17.7225% { opacity: 1; stroke-dashoffset: 1; }
-        19.1548%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        19.1548%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-033 {
         0%, 19.1993% { opacity: 0; stroke-dashoffset: 1; }
         19.2349% { opacity: 1; stroke-dashoffset: 1; }
-        20.2936%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        20.2936%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-034 {
         0%, 20.347% { opacity: 0; stroke-dashoffset: 1; }
         20.3826% { opacity: 1; stroke-dashoffset: 1; }
-        21.0409%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        21.0409%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-035 {
         0%, 21.0943% { opacity: 0; stroke-dashoffset: 1; }
         21.1299% { opacity: 1; stroke-dashoffset: 1; }
-        21.6726%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        21.6726%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-036 {
         0%, 21.726% { opacity: 0; stroke-dashoffset: 1; }
         21.7615% { opacity: 1; stroke-dashoffset: 1; }
-        22.2954%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        22.2954%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-037 {
         0%, 22.3309% { opacity: 0; stroke-dashoffset: 1; }
         22.3666% { opacity: 1; stroke-dashoffset: 1; }
-        22.589%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        22.589%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-038 {
         0%, 22.6512% { opacity: 0; stroke-dashoffset: 1; }
         22.6869% { opacity: 1; stroke-dashoffset: 1; }
-        22.8915%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        22.8915%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-039 {
         0%, 22.9359% { opacity: 0; stroke-dashoffset: 1; }
         22.9716% { opacity: 1; stroke-dashoffset: 1; }
-        23.2118%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        23.2118%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-040 {
         0%, 23.2562% { opacity: 0; stroke-dashoffset: 1; }
         23.2918% { opacity: 1; stroke-dashoffset: 1; }
-        23.4965%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        23.4965%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-041 {
         0%, 23.5499% { opacity: 0; stroke-dashoffset: 1; }
         23.5854% { opacity: 1; stroke-dashoffset: 1; }
-        23.7901%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        23.7901%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-042 {
         0%, 23.8256% { opacity: 0; stroke-dashoffset: 1; }
         23.8613% { opacity: 1; stroke-dashoffset: 1; }
-        24.0658%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        24.0658%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-043 {
         0%, 24.1281% { opacity: 0; stroke-dashoffset: 1; }
         24.1637% { opacity: 1; stroke-dashoffset: 1; }
-        24.3683%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        24.3683%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-044 {
         0%, 24.4129% { opacity: 0; stroke-dashoffset: 1; }
         24.4484% { opacity: 1; stroke-dashoffset: 1; }
-        24.6886%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        24.6886%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-045 {
         0%, 24.742% { opacity: 0; stroke-dashoffset: 1; }
         24.7775% { opacity: 1; stroke-dashoffset: 1; }
-        24.9822%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        24.9822%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-046 {
         0%, 25.0267% { opacity: 0; stroke-dashoffset: 1; }
         25.0623% { opacity: 1; stroke-dashoffset: 1; }
-        25.2669%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        25.2669%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-047 {
         0%, 25.3203% { opacity: 0; stroke-dashoffset: 1; }
         25.3558% { opacity: 1; stroke-dashoffset: 1; }
-        25.5605%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        25.5605%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-048 {
         0%, 25.605% { opacity: 0; stroke-dashoffset: 1; }
         25.6405% { opacity: 1; stroke-dashoffset: 1; }
-        25.8452%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        25.8452%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-049 {
         0%, 25.8897% { opacity: 0; stroke-dashoffset: 1; }
         25.9253% { opacity: 1; stroke-dashoffset: 1; }
-        27.2509%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        27.2509%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-050 {
         0%, 27.3043% { opacity: 0; stroke-dashoffset: 1; }
         27.3398% { opacity: 1; stroke-dashoffset: 1; }
-        28.7723%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        28.7723%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-051 {
         0%, 28.8256% { opacity: 0; stroke-dashoffset: 1; }
         28.8612% { opacity: 1; stroke-dashoffset: 1; }
-        29.0658%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        29.0658%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-052 {
         0%, 29.1192% { opacity: 0; stroke-dashoffset: 1; }
         29.1548% { opacity: 1; stroke-dashoffset: 1; }
-        29.3594%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        29.3594%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-053 {
         0%, 29.395% { opacity: 0; stroke-dashoffset: 1; }
         29.4306% { opacity: 1; stroke-dashoffset: 1; }
-        29.6353%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        29.6353%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-054 {
         0%, 29.6975% { opacity: 0; stroke-dashoffset: 1; }
         29.7331% { opacity: 1; stroke-dashoffset: 1; }
-        29.9822%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        29.9822%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-055 {
         0%, 30.0178% { opacity: 0; stroke-dashoffset: 1; }
         30.0534% { opacity: 1; stroke-dashoffset: 1; }
-        30.3826%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        30.3826%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-056 {
         0%, 30.4271% { opacity: 0; stroke-dashoffset: 1; }
         30.4626% { opacity: 1; stroke-dashoffset: 1; }
-        30.6673%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        30.6673%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-057 {
         0%, 30.7028% { opacity: 0; stroke-dashoffset: 1; }
         30.7385% { opacity: 1; stroke-dashoffset: 1; }
-        31.0676%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        31.0676%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-058 {
         0%, 31.121% { opacity: 0; stroke-dashoffset: 1; }
         31.1566% { opacity: 1; stroke-dashoffset: 1; }
-        31.3612%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        31.3612%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-059 {
         0%, 31.4057% { opacity: 0; stroke-dashoffset: 1; }
         31.4412% { opacity: 1; stroke-dashoffset: 1; }
-        31.6726%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        31.6726%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-060 {
         0%, 31.726% { opacity: 0; stroke-dashoffset: 1; }
         31.7616% { opacity: 1; stroke-dashoffset: 1; }
-        31.9662%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        31.9662%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-061 {
         0%, 32.0107% { opacity: 0; stroke-dashoffset: 1; }
         32.0462% { opacity: 1; stroke-dashoffset: 1; }
-        32.2509%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        32.2509%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-062 {
         0%, 32.3042% { opacity: 0; stroke-dashoffset: 1; }
         32.3399% { opacity: 1; stroke-dashoffset: 1; }
-        32.5444%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        32.5444%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-063 {
         0%, 32.589% { opacity: 0; stroke-dashoffset: 1; }
         32.6246% { opacity: 1; stroke-dashoffset: 1; }
-        32.9716%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        32.9716%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-064 {
         0%, 33.016% { opacity: 0; stroke-dashoffset: 1; }
         33.0516% { opacity: 1; stroke-dashoffset: 1; }
-        33.2563%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        33.2563%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-065 {
         0%, 33.3185% { opacity: 0; stroke-dashoffset: 1; }
         33.3541% { opacity: 1; stroke-dashoffset: 1; }
-        33.5587%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        33.5587%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-066 {
         0%, 33.6032% { opacity: 0; stroke-dashoffset: 1; }
         33.6388% { opacity: 1; stroke-dashoffset: 1; }
-        33.8434%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        33.8434%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-067 {
         0%, 33.8879% { opacity: 0; stroke-dashoffset: 1; }
         33.9235% { opacity: 1; stroke-dashoffset: 1; }
-        34.5285%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        34.5285%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-068 {
         0%, 34.573% { opacity: 0; stroke-dashoffset: 1; }
         34.6085% { opacity: 1; stroke-dashoffset: 1; }
-        35.2402%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        35.2402%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-069 {
         0%, 35.2847% { opacity: 0; stroke-dashoffset: 1; }
         35.3203% { opacity: 1; stroke-dashoffset: 1; }
-        35.5249%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        35.5249%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-070 {
         0%, 35.5783% { opacity: 0; stroke-dashoffset: 1; }
         35.6138% { opacity: 1; stroke-dashoffset: 1; }
-        37.0463%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        37.0463%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-071 {
         0%, 37.0996% { opacity: 0; stroke-dashoffset: 1; }
         37.1352% { opacity: 1; stroke-dashoffset: 1; }
-        37.3398%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        37.3398%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-072 {
         0%, 37.3932% { opacity: 0; stroke-dashoffset: 1; }
         37.4289% { opacity: 1; stroke-dashoffset: 1; }
-        37.6334%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        37.6334%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-073 {
         0%, 37.6691% { opacity: 0; stroke-dashoffset: 1; }
         37.7046% { opacity: 1; stroke-dashoffset: 1; }
-        38.5854%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        38.5854%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-074 {
         0%, 38.6299% { opacity: 0; stroke-dashoffset: 1; }
         38.6655% { opacity: 1; stroke-dashoffset: 1; }
-        39.0213%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        39.0213%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-075 {
         0%, 39.057% { opacity: 0; stroke-dashoffset: 1; }
         39.0925% { opacity: 1; stroke-dashoffset: 1; }
-        39.742%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        39.742%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-076 {
         0%, 39.8043% { opacity: 0; stroke-dashoffset: 1; }
         39.8399% { opacity: 1; stroke-dashoffset: 1; }
-        40.5071%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        40.5071%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-077 {
         0%, 40.5516% { opacity: 0; stroke-dashoffset: 1; }
         40.5872% { opacity: 1; stroke-dashoffset: 1; }
-        42.0196%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        42.0196%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-078 {
         0%, 42.064% { opacity: 0; stroke-dashoffset: 1; }
         42.0997% { opacity: 1; stroke-dashoffset: 1; }
-        42.6957%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        42.6957%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-079 {
         0%, 42.7402% { opacity: 0; stroke-dashoffset: 1; }
         42.7758% { opacity: 1; stroke-dashoffset: 1; }
-        42.9804%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        42.9804%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-080 {
         0%, 43.0338% { opacity: 0; stroke-dashoffset: 1; }
         43.0694% { opacity: 1; stroke-dashoffset: 1; }
-        44.5018%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        44.5018%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-081 {
         0%, 44.5463% { opacity: 0; stroke-dashoffset: 1; }
         44.5818% { opacity: 1; stroke-dashoffset: 1; }
-        46.0142%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        46.0142%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-082 {
         0%, 46.0676% { opacity: 0; stroke-dashoffset: 1; }
         46.1032% { opacity: 1; stroke-dashoffset: 1; }
-        46.3078%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        46.3078%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-083 {
         0%, 46.3523% { opacity: 0; stroke-dashoffset: 1; }
         46.3879% { opacity: 1; stroke-dashoffset: 1; }
-        47.3488%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        47.3488%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-084 {
         0%, 47.3843% { opacity: 0; stroke-dashoffset: 1; }
         47.4199% { opacity: 1; stroke-dashoffset: 1; }
-        48.5054%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        48.5054%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-085 {
         0%, 48.5587% { opacity: 0; stroke-dashoffset: 1; }
         48.5943% { opacity: 1; stroke-dashoffset: 1; }
-        48.9679%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        48.9679%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-086 {
         0%, 49.0124% { opacity: 0; stroke-dashoffset: 1; }
         49.0481% { opacity: 1; stroke-dashoffset: 1; }
-        49.2526%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        49.2526%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-087 {
         0%, 49.2972% { opacity: 0; stroke-dashoffset: 1; }
         49.3327% { opacity: 1; stroke-dashoffset: 1; }
-        49.9644%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        49.9644%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-088 {
         0%, 50.0089% { opacity: 0; stroke-dashoffset: 1; }
         50.0445% { opacity: 1; stroke-dashoffset: 1; }
-        50.7829%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        50.7829%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-089 {
         0%, 50.8363% { opacity: 0; stroke-dashoffset: 1; }
         50.8719% { opacity: 1; stroke-dashoffset: 1; }
-        51.2722%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        51.2722%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-090 {
         0%, 51.3345% { opacity: 0; stroke-dashoffset: 1; }
         51.3701% { opacity: 1; stroke-dashoffset: 1; }
-        52.4199%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        52.4199%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-091 {
         0%, 52.4644% { opacity: 0; stroke-dashoffset: 1; }
         52.5% { opacity: 1; stroke-dashoffset: 1; }
-        53.5498%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        53.5498%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-092 {
         0%, 53.5943% { opacity: 0; stroke-dashoffset: 1; }
         53.6299% { opacity: 1; stroke-dashoffset: 1; }
-        54.0569%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        54.0569%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-093 {
         0%, 54.1014% { opacity: 0; stroke-dashoffset: 1; }
         54.1371% { opacity: 1; stroke-dashoffset: 1; }
-        54.3416%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        54.3416%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
 @keyframes draw-094 {
         0%, 54.395% { opacity: 0; stroke-dashoffset: 1; }
         54.4306% { opacity: 1; stroke-dashoffset: 1; }
-        54.6352%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
-        100% { opacity: 0; stroke-dashoffset: 1; }
+        54.6352%, 91.1032% { opacity: 1; stroke-dashoffset: 0; }
+        91.1033%, 100% { opacity: 0; stroke-dashoffset: 1; }
       }
 
       .draw-000 { animation-name: draw-000; }
