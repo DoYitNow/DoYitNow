@@ -1,253 +1,958 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1175 500" role="img" aria-labelledby="title desc">
-  <title id="title">Flat black and white rainy scene</title>
-  <desc id="desc">A 2.35 to 1 monochrome flat line-art rain scene with dense rain, wet ground, and animated ground ripples.</desc>
-  <style>
-    :root {
-      color-scheme: light;
-    }
-
-    svg {
-      background: transparent;
-    }
-
-    .line {
-      fill: none;
-      stroke: #101010;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      vector-effect: non-scaling-stroke;
-    }
-
-    .thin { stroke-width: 1; }
-    .medium { stroke-width: 1.6; }
-    .bold { stroke-width: 2.5; }
-    .soft { opacity: .45; }
-    .faint { opacity: .22; }
-    .haze { opacity: .12; }
-
-    .rain {
-      animation: rainFall var(--dur, 1.2s) linear infinite;
-      animation-delay: var(--delay, 0s);
-      opacity: var(--alpha, .58);
-    }
-
-    .rain line {
-      stroke-width: var(--w, 1.15);
-    }
-
-    .ripple {
-      animation: rippleExpand var(--dur, 2.65s) ease-out infinite;
-      animation-delay: var(--delay, 0s);
-      transform-box: fill-box;
-      transform-origin: center;
-      opacity: 0;
-    }
-
-    .impact-drop {
-      animation: impactDrop var(--dur, 2.65s) ease-in infinite;
-      animation-delay: var(--delay, 0s);
-      stroke-dasharray: 96 128;
-      stroke-dashoffset: 128;
-      opacity: 0;
-    }
-
-    .ground-line {
-      animation: groundShiver 5s ease-in-out infinite;
-    }
-
-    .ground-line:nth-child(2n) {
-      animation-delay: -1.7s;
-      animation-duration: 6.2s;
-    }
-
-    .cloud-line {
-      animation: cloudDrift 12s linear infinite;
-    }
-
-    .cloud-line:nth-child(2n) {
-      animation-delay: -4s;
-      animation-duration: 15s;
-    }
-
-    @keyframes rainFall {
-      from { transform: translate(80px, -560px); }
-      to { transform: translate(-120px, 540px); }
-    }
-
-    @keyframes rippleExpand {
-      0% { transform: scale(.16); opacity: 0; stroke-dashoffset: 18; }
-      12% { opacity: .82; }
-      68% { opacity: .28; }
-      100% { transform: scale(1.85); opacity: 0; stroke-dashoffset: 0; }
-    }
-
-    @keyframes impactDrop {
-      0% { opacity: 0; stroke-dashoffset: 128; }
-      12% { opacity: .68; }
-      44% { opacity: .68; stroke-dashoffset: 0; }
-      58% { opacity: 0; stroke-dashoffset: 0; }
-      100% { opacity: 0; stroke-dashoffset: 0; }
-    }
-
-    @keyframes groundShiver {
-      0%, 100% { transform: translateX(0); opacity: .25; }
-      50% { transform: translateX(-8px); opacity: .5; }
-    }
-
-    @keyframes cloudDrift {
-      from { transform: translateX(0); opacity: .18; }
-      50% { opacity: .3; }
-      to { transform: translateX(-60px); opacity: .18; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .rain,
-      .ripple,
-      .impact-drop,
-      .ground-line,
-      .cloud-line {
-        animation: none;
-      }
-    }
-  </style>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 732 561" role="img" aria-labelledby="title desc">
+  <title id="title">Looping black line draw and Z wipe erase animation</title>
+  <desc id="desc">A transparent-background black line-art animation for light themes, drawing two hugging friends, holding briefly, erasing with a broad Z-shaped wipe, and looping.</desc>
   <defs>
-    <clipPath id="scene-clip">
-      <rect x="0" y="0" width="1175" height="500" />
-    </clipPath>
+    <style>
+      :root {
+        color: #000000;
+        --loop-duration: 11.240s;
+      }
 
-    <clipPath id="rain-ground-clip">
-      <rect x="-160" y="-40" width="1500" height="505" />
-    </clipPath>
+      .ink {
+        fill: currentColor;
+        fill-rule: evenodd;
+      }
 
-    <g id="rain-line">
-      <line class="line" x1="0" y1="0" x2="-18" y2="76" />
+      .reveal-stroke,
+      .z-erase-stroke {
+        opacity: 0;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation-duration: var(--loop-duration);
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+
+      .reveal-stroke {
+        stroke: #ffffff;
+        stroke-width: 18;
+      }
+
+      .z-erase-stroke {
+        stroke: #000000;
+        stroke-width: 190;
+        animation-name: z-erase-cycle;
+      }
+
+      .final-mask-fill {
+        fill: #ffffff;
+        fill-rule: evenodd;
+        opacity: 0;
+        animation: final-fill-cycle var(--loop-duration) linear infinite;
+      }
+
+      .clear-mask {
+        fill: #000000;
+        opacity: 0;
+        animation: clear-cycle var(--loop-duration) linear infinite;
+      }
+
+      @keyframes final-fill-cycle {
+        0%, 55.1602% { opacity: 0; }
+        57.1174%, 99.8% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      @keyframes z-erase-cycle {
+        0%, 83.8078% { opacity: 0; stroke-dashoffset: 1; }
+        83.8968% { opacity: 1; stroke-dashoffset: 1; }
+        90.7473%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+      @keyframes clear-cycle {
+        0%, 91.1032% { opacity: 0; }
+        91.1922%, 99.8% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+@keyframes draw-000 {
+        0%, 0.7473% { opacity: 0; stroke-dashoffset: 1; }
+        0.7829% { opacity: 1; stroke-dashoffset: 1; }
+        2.2153%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-001 {
+        0%, 2.2686% { opacity: 0; stroke-dashoffset: 1; }
+        2.3043% { opacity: 1; stroke-dashoffset: 1; }
+        2.5623%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-002 {
+        0%, 2.6157% { opacity: 0; stroke-dashoffset: 1; }
+        2.6512% { opacity: 1; stroke-dashoffset: 1; }
+        2.8559%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-003 {
+        0%, 2.9004% { opacity: 0; stroke-dashoffset: 1; }
+        2.936% { opacity: 1; stroke-dashoffset: 1; }
+        3.1406%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-004 {
+        0%, 3.194% { opacity: 0; stroke-dashoffset: 1; }
+        3.2295% { opacity: 1; stroke-dashoffset: 1; }
+        4.1192%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-005 {
+        0%, 4.1637% { opacity: 0; stroke-dashoffset: 1; }
+        4.1993% { opacity: 1; stroke-dashoffset: 1; }
+        4.5819%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-006 {
+        0%, 4.6441% { opacity: 0; stroke-dashoffset: 1; }
+        4.6797% { opacity: 1; stroke-dashoffset: 1; }
+        4.9644%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-007 {
+        0%, 5.0089% { opacity: 0; stroke-dashoffset: 1; }
+        5.0445% { opacity: 1; stroke-dashoffset: 1; }
+        5.347%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-008 {
+        0%, 5.3737% { opacity: 0; stroke-dashoffset: 1; }
+        5.4092% { opacity: 1; stroke-dashoffset: 1; }
+        5.7295%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-009 {
+        0%, 5.7829% { opacity: 0; stroke-dashoffset: 1; }
+        5.8185% { opacity: 1; stroke-dashoffset: 1; }
+        6.8238%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-010 {
+        0%, 6.8772% { opacity: 0; stroke-dashoffset: 1; }
+        6.9128% { opacity: 1; stroke-dashoffset: 1; }
+        7.2687%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-011 {
+        0%, 7.3132% { opacity: 0; stroke-dashoffset: 1; }
+        7.3487% { opacity: 1; stroke-dashoffset: 1; }
+        7.5534%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-012 {
+        0%, 7.6068% { opacity: 0; stroke-dashoffset: 1; }
+        7.6423% { opacity: 1; stroke-dashoffset: 1; }
+        7.847%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-013 {
+        0%, 7.8915% { opacity: 0; stroke-dashoffset: 1; }
+        7.927% { opacity: 1; stroke-dashoffset: 1; }
+        8.1317%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-014 {
+        0%, 8.1851% { opacity: 0; stroke-dashoffset: 1; }
+        8.2206% { opacity: 1; stroke-dashoffset: 1; }
+        8.9323%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-015 {
+        0%, 8.968% { opacity: 0; stroke-dashoffset: 1; }
+        9.0035% { opacity: 1; stroke-dashoffset: 1; }
+        9.2082%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-016 {
+        0%, 9.2704% { opacity: 0; stroke-dashoffset: 1; }
+        9.3061% { opacity: 1; stroke-dashoffset: 1; }
+        9.5107%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-017 {
+        0%, 9.5463% { opacity: 0; stroke-dashoffset: 1; }
+        9.5818% { opacity: 1; stroke-dashoffset: 1; }
+        9.7865%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-018 {
+        0%, 9.8399% { opacity: 0; stroke-dashoffset: 1; }
+        9.8754% { opacity: 1; stroke-dashoffset: 1; }
+        10.0801%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-019 {
+        0%, 10.1157% { opacity: 0; stroke-dashoffset: 1; }
+        10.1513% { opacity: 1; stroke-dashoffset: 1; }
+        10.7474%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-020 {
+        0%, 10.7918% { opacity: 0; stroke-dashoffset: 1; }
+        10.8274% { opacity: 1; stroke-dashoffset: 1; }
+        11.7082%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-021 {
+        0%, 11.7527% { opacity: 0; stroke-dashoffset: 1; }
+        11.7882% { opacity: 1; stroke-dashoffset: 1; }
+        11.9929%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-022 {
+        0%, 12.0462% { opacity: 0; stroke-dashoffset: 1; }
+        12.0819% { opacity: 1; stroke-dashoffset: 1; }
+        12.2864%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-023 {
+        0%, 12.331% { opacity: 0; stroke-dashoffset: 1; }
+        12.3665% { opacity: 1; stroke-dashoffset: 1; }
+        12.5712%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-024 {
+        0%, 12.6245% { opacity: 0; stroke-dashoffset: 1; }
+        12.6602% { opacity: 1; stroke-dashoffset: 1; }
+        12.9893%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-025 {
+        0%, 13.0427% { opacity: 0; stroke-dashoffset: 1; }
+        13.0782% { opacity: 1; stroke-dashoffset: 1; }
+        13.2829%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-026 {
+        0%, 13.3274% { opacity: 0; stroke-dashoffset: 1; }
+        13.363% { opacity: 1; stroke-dashoffset: 1; }
+        13.5676%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-027 {
+        0%, 13.621% { opacity: 0; stroke-dashoffset: 1; }
+        13.6566% { opacity: 1; stroke-dashoffset: 1; }
+        13.8612%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-028 {
+        0%, 13.9057% { opacity: 0; stroke-dashoffset: 1; }
+        13.9412% { opacity: 1; stroke-dashoffset: 1; }
+        14.1459%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-029 {
+        0%, 14.1993% { opacity: 0; stroke-dashoffset: 1; }
+        14.2349% { opacity: 1; stroke-dashoffset: 1; }
+        14.6086%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-030 {
+        0%, 14.6531% { opacity: 0; stroke-dashoffset: 1; }
+        14.6886% { opacity: 1; stroke-dashoffset: 1; }
+        16.121%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-031 {
+        0%, 16.1655% { opacity: 0; stroke-dashoffset: 1; }
+        16.2011% { opacity: 1; stroke-dashoffset: 1; }
+        17.6334%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-032 {
+        0%, 17.6868% { opacity: 0; stroke-dashoffset: 1; }
+        17.7225% { opacity: 1; stroke-dashoffset: 1; }
+        19.1548%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-033 {
+        0%, 19.1993% { opacity: 0; stroke-dashoffset: 1; }
+        19.2349% { opacity: 1; stroke-dashoffset: 1; }
+        20.2936%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-034 {
+        0%, 20.347% { opacity: 0; stroke-dashoffset: 1; }
+        20.3826% { opacity: 1; stroke-dashoffset: 1; }
+        21.0409%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-035 {
+        0%, 21.0943% { opacity: 0; stroke-dashoffset: 1; }
+        21.1299% { opacity: 1; stroke-dashoffset: 1; }
+        21.6726%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-036 {
+        0%, 21.726% { opacity: 0; stroke-dashoffset: 1; }
+        21.7615% { opacity: 1; stroke-dashoffset: 1; }
+        22.2954%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-037 {
+        0%, 22.3309% { opacity: 0; stroke-dashoffset: 1; }
+        22.3666% { opacity: 1; stroke-dashoffset: 1; }
+        22.589%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-038 {
+        0%, 22.6512% { opacity: 0; stroke-dashoffset: 1; }
+        22.6869% { opacity: 1; stroke-dashoffset: 1; }
+        22.8915%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-039 {
+        0%, 22.9359% { opacity: 0; stroke-dashoffset: 1; }
+        22.9716% { opacity: 1; stroke-dashoffset: 1; }
+        23.2118%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-040 {
+        0%, 23.2562% { opacity: 0; stroke-dashoffset: 1; }
+        23.2918% { opacity: 1; stroke-dashoffset: 1; }
+        23.4965%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-041 {
+        0%, 23.5499% { opacity: 0; stroke-dashoffset: 1; }
+        23.5854% { opacity: 1; stroke-dashoffset: 1; }
+        23.7901%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-042 {
+        0%, 23.8256% { opacity: 0; stroke-dashoffset: 1; }
+        23.8613% { opacity: 1; stroke-dashoffset: 1; }
+        24.0658%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-043 {
+        0%, 24.1281% { opacity: 0; stroke-dashoffset: 1; }
+        24.1637% { opacity: 1; stroke-dashoffset: 1; }
+        24.3683%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-044 {
+        0%, 24.4129% { opacity: 0; stroke-dashoffset: 1; }
+        24.4484% { opacity: 1; stroke-dashoffset: 1; }
+        24.6886%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-045 {
+        0%, 24.742% { opacity: 0; stroke-dashoffset: 1; }
+        24.7775% { opacity: 1; stroke-dashoffset: 1; }
+        24.9822%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-046 {
+        0%, 25.0267% { opacity: 0; stroke-dashoffset: 1; }
+        25.0623% { opacity: 1; stroke-dashoffset: 1; }
+        25.2669%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-047 {
+        0%, 25.3203% { opacity: 0; stroke-dashoffset: 1; }
+        25.3558% { opacity: 1; stroke-dashoffset: 1; }
+        25.5605%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-048 {
+        0%, 25.605% { opacity: 0; stroke-dashoffset: 1; }
+        25.6405% { opacity: 1; stroke-dashoffset: 1; }
+        25.8452%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-049 {
+        0%, 25.8897% { opacity: 0; stroke-dashoffset: 1; }
+        25.9253% { opacity: 1; stroke-dashoffset: 1; }
+        27.2509%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-050 {
+        0%, 27.3043% { opacity: 0; stroke-dashoffset: 1; }
+        27.3398% { opacity: 1; stroke-dashoffset: 1; }
+        28.7723%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-051 {
+        0%, 28.8256% { opacity: 0; stroke-dashoffset: 1; }
+        28.8612% { opacity: 1; stroke-dashoffset: 1; }
+        29.0658%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-052 {
+        0%, 29.1192% { opacity: 0; stroke-dashoffset: 1; }
+        29.1548% { opacity: 1; stroke-dashoffset: 1; }
+        29.3594%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-053 {
+        0%, 29.395% { opacity: 0; stroke-dashoffset: 1; }
+        29.4306% { opacity: 1; stroke-dashoffset: 1; }
+        29.6353%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-054 {
+        0%, 29.6975% { opacity: 0; stroke-dashoffset: 1; }
+        29.7331% { opacity: 1; stroke-dashoffset: 1; }
+        29.9822%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-055 {
+        0%, 30.0178% { opacity: 0; stroke-dashoffset: 1; }
+        30.0534% { opacity: 1; stroke-dashoffset: 1; }
+        30.3826%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-056 {
+        0%, 30.4271% { opacity: 0; stroke-dashoffset: 1; }
+        30.4626% { opacity: 1; stroke-dashoffset: 1; }
+        30.6673%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-057 {
+        0%, 30.7028% { opacity: 0; stroke-dashoffset: 1; }
+        30.7385% { opacity: 1; stroke-dashoffset: 1; }
+        31.0676%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-058 {
+        0%, 31.121% { opacity: 0; stroke-dashoffset: 1; }
+        31.1566% { opacity: 1; stroke-dashoffset: 1; }
+        31.3612%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-059 {
+        0%, 31.4057% { opacity: 0; stroke-dashoffset: 1; }
+        31.4412% { opacity: 1; stroke-dashoffset: 1; }
+        31.6726%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-060 {
+        0%, 31.726% { opacity: 0; stroke-dashoffset: 1; }
+        31.7616% { opacity: 1; stroke-dashoffset: 1; }
+        31.9662%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-061 {
+        0%, 32.0107% { opacity: 0; stroke-dashoffset: 1; }
+        32.0462% { opacity: 1; stroke-dashoffset: 1; }
+        32.2509%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-062 {
+        0%, 32.3042% { opacity: 0; stroke-dashoffset: 1; }
+        32.3399% { opacity: 1; stroke-dashoffset: 1; }
+        32.5444%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-063 {
+        0%, 32.589% { opacity: 0; stroke-dashoffset: 1; }
+        32.6246% { opacity: 1; stroke-dashoffset: 1; }
+        32.9716%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-064 {
+        0%, 33.016% { opacity: 0; stroke-dashoffset: 1; }
+        33.0516% { opacity: 1; stroke-dashoffset: 1; }
+        33.2563%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-065 {
+        0%, 33.3185% { opacity: 0; stroke-dashoffset: 1; }
+        33.3541% { opacity: 1; stroke-dashoffset: 1; }
+        33.5587%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-066 {
+        0%, 33.6032% { opacity: 0; stroke-dashoffset: 1; }
+        33.6388% { opacity: 1; stroke-dashoffset: 1; }
+        33.8434%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-067 {
+        0%, 33.8879% { opacity: 0; stroke-dashoffset: 1; }
+        33.9235% { opacity: 1; stroke-dashoffset: 1; }
+        34.5285%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-068 {
+        0%, 34.573% { opacity: 0; stroke-dashoffset: 1; }
+        34.6085% { opacity: 1; stroke-dashoffset: 1; }
+        35.2402%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-069 {
+        0%, 35.2847% { opacity: 0; stroke-dashoffset: 1; }
+        35.3203% { opacity: 1; stroke-dashoffset: 1; }
+        35.5249%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-070 {
+        0%, 35.5783% { opacity: 0; stroke-dashoffset: 1; }
+        35.6138% { opacity: 1; stroke-dashoffset: 1; }
+        37.0463%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-071 {
+        0%, 37.0996% { opacity: 0; stroke-dashoffset: 1; }
+        37.1352% { opacity: 1; stroke-dashoffset: 1; }
+        37.3398%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-072 {
+        0%, 37.3932% { opacity: 0; stroke-dashoffset: 1; }
+        37.4289% { opacity: 1; stroke-dashoffset: 1; }
+        37.6334%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-073 {
+        0%, 37.6691% { opacity: 0; stroke-dashoffset: 1; }
+        37.7046% { opacity: 1; stroke-dashoffset: 1; }
+        38.5854%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-074 {
+        0%, 38.6299% { opacity: 0; stroke-dashoffset: 1; }
+        38.6655% { opacity: 1; stroke-dashoffset: 1; }
+        39.0213%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-075 {
+        0%, 39.057% { opacity: 0; stroke-dashoffset: 1; }
+        39.0925% { opacity: 1; stroke-dashoffset: 1; }
+        39.742%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-076 {
+        0%, 39.8043% { opacity: 0; stroke-dashoffset: 1; }
+        39.8399% { opacity: 1; stroke-dashoffset: 1; }
+        40.5071%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-077 {
+        0%, 40.5516% { opacity: 0; stroke-dashoffset: 1; }
+        40.5872% { opacity: 1; stroke-dashoffset: 1; }
+        42.0196%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-078 {
+        0%, 42.064% { opacity: 0; stroke-dashoffset: 1; }
+        42.0997% { opacity: 1; stroke-dashoffset: 1; }
+        42.6957%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-079 {
+        0%, 42.7402% { opacity: 0; stroke-dashoffset: 1; }
+        42.7758% { opacity: 1; stroke-dashoffset: 1; }
+        42.9804%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-080 {
+        0%, 43.0338% { opacity: 0; stroke-dashoffset: 1; }
+        43.0694% { opacity: 1; stroke-dashoffset: 1; }
+        44.5018%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-081 {
+        0%, 44.5463% { opacity: 0; stroke-dashoffset: 1; }
+        44.5818% { opacity: 1; stroke-dashoffset: 1; }
+        46.0142%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-082 {
+        0%, 46.0676% { opacity: 0; stroke-dashoffset: 1; }
+        46.1032% { opacity: 1; stroke-dashoffset: 1; }
+        46.3078%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-083 {
+        0%, 46.3523% { opacity: 0; stroke-dashoffset: 1; }
+        46.3879% { opacity: 1; stroke-dashoffset: 1; }
+        47.3488%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-084 {
+        0%, 47.3843% { opacity: 0; stroke-dashoffset: 1; }
+        47.4199% { opacity: 1; stroke-dashoffset: 1; }
+        48.5054%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-085 {
+        0%, 48.5587% { opacity: 0; stroke-dashoffset: 1; }
+        48.5943% { opacity: 1; stroke-dashoffset: 1; }
+        48.9679%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-086 {
+        0%, 49.0124% { opacity: 0; stroke-dashoffset: 1; }
+        49.0481% { opacity: 1; stroke-dashoffset: 1; }
+        49.2526%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-087 {
+        0%, 49.2972% { opacity: 0; stroke-dashoffset: 1; }
+        49.3327% { opacity: 1; stroke-dashoffset: 1; }
+        49.9644%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-088 {
+        0%, 50.0089% { opacity: 0; stroke-dashoffset: 1; }
+        50.0445% { opacity: 1; stroke-dashoffset: 1; }
+        50.7829%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-089 {
+        0%, 50.8363% { opacity: 0; stroke-dashoffset: 1; }
+        50.8719% { opacity: 1; stroke-dashoffset: 1; }
+        51.2722%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-090 {
+        0%, 51.3345% { opacity: 0; stroke-dashoffset: 1; }
+        51.3701% { opacity: 1; stroke-dashoffset: 1; }
+        52.4199%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-091 {
+        0%, 52.4644% { opacity: 0; stroke-dashoffset: 1; }
+        52.5% { opacity: 1; stroke-dashoffset: 1; }
+        53.5498%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-092 {
+        0%, 53.5943% { opacity: 0; stroke-dashoffset: 1; }
+        53.6299% { opacity: 1; stroke-dashoffset: 1; }
+        54.0569%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-093 {
+        0%, 54.1014% { opacity: 0; stroke-dashoffset: 1; }
+        54.1371% { opacity: 1; stroke-dashoffset: 1; }
+        54.3416%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+@keyframes draw-094 {
+        0%, 54.395% { opacity: 0; stroke-dashoffset: 1; }
+        54.4306% { opacity: 1; stroke-dashoffset: 1; }
+        54.6352%, 99.8% { opacity: 1; stroke-dashoffset: 0; }
+        100% { opacity: 0; stroke-dashoffset: 1; }
+      }
+
+      .draw-000 { animation-name: draw-000; }
+      .draw-001 { animation-name: draw-001; }
+      .draw-002 { animation-name: draw-002; }
+      .draw-003 { animation-name: draw-003; }
+      .draw-004 { animation-name: draw-004; }
+      .draw-005 { animation-name: draw-005; }
+      .draw-006 { animation-name: draw-006; }
+      .draw-007 { animation-name: draw-007; }
+      .draw-008 { animation-name: draw-008; }
+      .draw-009 { animation-name: draw-009; }
+      .draw-010 { animation-name: draw-010; }
+      .draw-011 { animation-name: draw-011; }
+      .draw-012 { animation-name: draw-012; }
+      .draw-013 { animation-name: draw-013; }
+      .draw-014 { animation-name: draw-014; }
+      .draw-015 { animation-name: draw-015; }
+      .draw-016 { animation-name: draw-016; }
+      .draw-017 { animation-name: draw-017; }
+      .draw-018 { animation-name: draw-018; }
+      .draw-019 { animation-name: draw-019; }
+      .draw-020 { animation-name: draw-020; }
+      .draw-021 { animation-name: draw-021; }
+      .draw-022 { animation-name: draw-022; }
+      .draw-023 { animation-name: draw-023; }
+      .draw-024 { animation-name: draw-024; }
+      .draw-025 { animation-name: draw-025; }
+      .draw-026 { animation-name: draw-026; }
+      .draw-027 { animation-name: draw-027; }
+      .draw-028 { animation-name: draw-028; }
+      .draw-029 { animation-name: draw-029; }
+      .draw-030 { animation-name: draw-030; }
+      .draw-031 { animation-name: draw-031; }
+      .draw-032 { animation-name: draw-032; }
+      .draw-033 { animation-name: draw-033; }
+      .draw-034 { animation-name: draw-034; }
+      .draw-035 { animation-name: draw-035; }
+      .draw-036 { animation-name: draw-036; }
+      .draw-037 { animation-name: draw-037; }
+      .draw-038 { animation-name: draw-038; }
+      .draw-039 { animation-name: draw-039; }
+      .draw-040 { animation-name: draw-040; }
+      .draw-041 { animation-name: draw-041; }
+      .draw-042 { animation-name: draw-042; }
+      .draw-043 { animation-name: draw-043; }
+      .draw-044 { animation-name: draw-044; }
+      .draw-045 { animation-name: draw-045; }
+      .draw-046 { animation-name: draw-046; }
+      .draw-047 { animation-name: draw-047; }
+      .draw-048 { animation-name: draw-048; }
+      .draw-049 { animation-name: draw-049; }
+      .draw-050 { animation-name: draw-050; }
+      .draw-051 { animation-name: draw-051; }
+      .draw-052 { animation-name: draw-052; }
+      .draw-053 { animation-name: draw-053; }
+      .draw-054 { animation-name: draw-054; }
+      .draw-055 { animation-name: draw-055; }
+      .draw-056 { animation-name: draw-056; }
+      .draw-057 { animation-name: draw-057; }
+      .draw-058 { animation-name: draw-058; }
+      .draw-059 { animation-name: draw-059; }
+      .draw-060 { animation-name: draw-060; }
+      .draw-061 { animation-name: draw-061; }
+      .draw-062 { animation-name: draw-062; }
+      .draw-063 { animation-name: draw-063; }
+      .draw-064 { animation-name: draw-064; }
+      .draw-065 { animation-name: draw-065; }
+      .draw-066 { animation-name: draw-066; }
+      .draw-067 { animation-name: draw-067; }
+      .draw-068 { animation-name: draw-068; }
+      .draw-069 { animation-name: draw-069; }
+      .draw-070 { animation-name: draw-070; }
+      .draw-071 { animation-name: draw-071; }
+      .draw-072 { animation-name: draw-072; }
+      .draw-073 { animation-name: draw-073; }
+      .draw-074 { animation-name: draw-074; }
+      .draw-075 { animation-name: draw-075; }
+      .draw-076 { animation-name: draw-076; }
+      .draw-077 { animation-name: draw-077; }
+      .draw-078 { animation-name: draw-078; }
+      .draw-079 { animation-name: draw-079; }
+      .draw-080 { animation-name: draw-080; }
+      .draw-081 { animation-name: draw-081; }
+      .draw-082 { animation-name: draw-082; }
+      .draw-083 { animation-name: draw-083; }
+      .draw-084 { animation-name: draw-084; }
+      .draw-085 { animation-name: draw-085; }
+      .draw-086 { animation-name: draw-086; }
+      .draw-087 { animation-name: draw-087; }
+      .draw-088 { animation-name: draw-088; }
+      .draw-089 { animation-name: draw-089; }
+      .draw-090 { animation-name: draw-090; }
+      .draw-091 { animation-name: draw-091; }
+      .draw-092 { animation-name: draw-092; }
+      .draw-093 { animation-name: draw-093; }
+      .draw-094 { animation-name: draw-094; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal-stroke,
+        .z-erase-stroke,
+        .clear-mask {
+          animation: none;
+          opacity: 0;
+        }
+
+        .final-mask-fill {
+          animation: none;
+          opacity: 1;
+        }
+      }
+    </style>
+
+    <g id="final-linework" class="ink">
+      <path d="M628 409 L602 411 L576 410 L564 412 L565 478 L629 479 L631 477 L631 426 L630 413 Z         M568 414 L575 413 L627 414 L628 424 L627 476 L587 476 L568 474 L567 433 Z         M553 244 L530 255 L515 259 L488 258 L470 253 L457 247 L460 251 L470 256 L489 261 L514 262 L525 260 L538 255 L551 248 Z         M306 243 L306 249 L311 260 L316 267 L326 277 L333 282 L345 286 L355 286 L363 284 L370 279 L370 277 L368 277 L362 281 L354 283 L345 283 L336 280 L326 273 L319 266 L313 257 Z         M380 166 L380 168 L389 163 L398 163 L402 165 L406 169 L407 166 L403 162 L396 160 L390 160 L387 161 Z         M297 159 L299 159 L307 154 L314 152 L326 153 L336 158 L335 154 L329 151 L320 149 L315 149 L307 151 L301 154 Z         M546 137 L541 139 L538 143 L538 148 L539 150 L544 154 L549 153 L553 148 L552 143 Z         M466 137 L460 139 L457 143 L457 149 L461 154 L467 154 L469 153 L472 149 L473 145 L472 141 Z         M546 114 L536 119 L531 123 L523 136 L521 143 L521 151 L525 163 L532 171 L541 176 L556 177 L568 173 L576 166 L582 151 L582 142 L577 128 L569 119 L557 114 Z         M551 117 L557 117 L563 119 L569 123 L574 129 L579 142 L579 150 L574 163 L567 170 L556 174 L547 174 L539 172 L536 170 L528 162 L525 156 L524 151 L525 139 L532 127 L537 122 L543 119 Z         M452 113 L444 117 L437 124 L430 136 L429 151 L431 157 L438 169 L443 173 L446 173 L449 175 L464 175 L473 173 L483 166 L488 158 L491 147 L490 135 L486 127 L473 116 L465 113 L457 112 Z         M453 116 L465 116 L472 119 L484 129 L487 135 L488 147 L486 155 L483 161 L478 166 L469 171 L464 172 L450 172 L444 170 L437 162 L432 151 L432 140 L436 131 L445 120 Z         M330 103 L318 102 L308 107 L304 111 L303 115 L315 106 L323 104 L327 105 Z         M571 72 L557 60 L518 49 L491 49 L468 54 L445 68 L428 86 L419 105 L411 105 L404 95 L392 85 L377 78 L356 73 L320 76 L300 84 L280 97 L267 110 L256 130 L250 152 L247 189 L242 208 L210 272 L210 283 L213 290 L225 296 L225 299 L195 356 L129 466 L94 501 L87 504 L90 506 L80 520 L73 537 L65 536 L54 530 L29 503 L29 499 L10 463 L10 455 L7 454 L12 504 L22 526 L32 539 L51 557 L62 560 L51 553 L23 522 L14 498 L12 484 L15 479 L26 502 L43 524 L56 535 L73 541 L68 560 L72 559 L83 521 L94 505 L132 467 L198 357 L223 310 L296 348 L346 348 L420 353 L463 350 L477 345 L504 343 L525 324 L537 317 L546 318 L545 329 L551 336 L565 334 L574 338 L587 330 L591 334 L591 338 L578 352 L547 371 L538 372 L530 369 L452 396 L400 405 L378 405 L324 411 L302 410 L319 414 L355 410 L368 411 L370 455 L362 560 L370 560 L368 508 L373 454 L371 409 L432 404 L460 397 L531 372 L544 375 L562 367 L575 358 L595 338 L620 337 L631 355 L639 383 L645 423 L645 560 L648 560 L647 498 L650 496 L648 495 L651 440 L657 464 L659 560 L664 557 L668 560 L691 560 L702 557 L702 560 L705 560 L703 472 L698 433 L687 398 L674 381 L672 383 L658 376 L639 372 L634 354 L623 335 L604 333 L603 326 L597 322 L589 321 L587 311 L580 307 L573 308 L564 302 L547 305 L544 301 L564 297 L600 280 L604 281 L604 193 L599 144 L587 98 Z         M698 455 L700 472 L701 550 L696 555 L688 558 L673 559 L662 553 L661 457 L668 459 L686 459 L694 455 Z         M642 375 L652 377 L672 386 L678 391 L684 399 L690 414 L691 422 L696 438 L697 449 L693 453 L686 456 L668 456 L657 452 L655 442 L652 436 L648 433 L647 414 L640 377 Z         M398 349 L401 339 L455 339 L478 342 L474 343 L472 345 L455 348 L441 348 L432 350 Z         M389 335 L389 338 L385 337 Z         M479 334 L478 337 L468 336 L467 337 L465 334 L467 334 L475 330 L478 331 Z         M482 341 L482 334 L481 333 L483 326 L488 329 L510 333 L503 340 L490 342 Z         M589 325 L597 325 L601 329 L600 335 L594 334 L588 327 Z         M580 310 L582 311 L586 316 L585 326 L579 333 L574 335 L571 335 L569 334 L568 327 L572 320 L573 310 Z         M536 313 L536 309 L538 307 L545 309 L540 314 Z         M556 305 L564 305 L569 310 L570 314 L567 324 L560 333 L552 333 L548 329 L548 323 L554 313 L551 312 L549 315 L546 314 L546 312 L549 309 Z         M479 303 L480 301 L486 301 L493 307 L515 312 L533 312 L533 315 L520 324 L515 329 L492 327 L484 324 L480 321 Z         M224 305 L229 295 L242 291 L311 321 L369 337 L373 336 L351 320 L351 317 L372 318 L381 316 L385 317 L382 340 L397 341 L395 348 L381 349 L345 345 L298 345 L227 310 Z         M386 329 L388 314 L393 313 L403 306 L406 306 L410 309 L416 308 L425 299 L427 288 L445 295 L476 300 L476 328 L470 329 L452 337 L397 338 L394 335 L387 332 Z         M423 287 L423 297 L420 301 L413 306 L407 305 L408 302 L415 296 L419 288 Z         M375 226 L380 220 L383 219 L390 220 L394 223 L402 226 L408 233 L401 239 L397 241 L393 241 L385 238 L376 230 Z         M414 196 L415 213 L414 223 L412 223 L408 221 L407 219 L410 215 L409 201 L411 198 Z         M337 76 L356 76 L386 85 L406 102 L405 107 L393 106 L390 111 L398 108 L408 113 L411 112 L409 107 L417 107 L423 123 L420 160 L406 201 L405 219 L384 210 L361 208 L352 211 L384 213 L387 217 L378 218 L372 229 L380 238 L389 243 L398 244 L404 241 L411 234 L409 229 L410 225 L421 236 L425 248 L425 262 L421 278 L409 298 L392 310 L381 314 L356 315 L325 307 L355 326 L357 331 L309 317 L243 288 L253 273 L261 238 L263 215 L261 200 L258 196 L259 231 L248 277 L239 288 L228 293 L219 291 L213 283 L215 266 L236 229 L246 205 L253 152 L264 120 L278 103 L294 91 L314 81 Z         M464 59 L489 52 L528 54 L554 62 L576 84 L585 101 L592 124 L598 160 L602 228 L601 277 L576 290 L537 300 L487 299 L446 292 L428 285 L424 276 L428 262 L428 249 L424 235 L419 229 L416 188 L426 139 L426 123 L421 106 L436 81 Z"/>
     </g>
 
-    <g id="ripple-small">
-      <ellipse class="line thin ripple" cx="0" cy="0" rx="18" ry="5" stroke-dasharray="12 12" />
-      <ellipse class="line thin ripple" cx="0" cy="0" rx="31" ry="8.5" stroke-dasharray="18 16" style="--delay:.2s; --dur:2.9s" />
-    </g>
+    <mask id="original-line-draw-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="732" height="561" mask-type="luminance">
+      <rect width="732" height="561" fill="#000000"/>
+      <path class="reveal-stroke draw-000" pathLength="1" d="M409.0 105.0L395.0 89.0L381.0 81.0L360.0 75.0L339.0 74.0L322.0 77.0L301.0 85.0L281.0 98.0L268.0 111.0L260.0 124.0L254.0 141.0L249.0 166.0L248.0 191.0L243.0 209.0L234.0 229.0L228.0 237.0L214.0 264.0L211.0 274.0L213.0 287.0L218.0 292.0L225.0 294.0"/>
+      <path class="reveal-stroke draw-001" pathLength="1" d="M304.0 113.0L309.0 108.0L316.0 104.0L329.0 103.0"/>
+      <path class="reveal-stroke draw-002" pathLength="1" d="M410.0 106.0L419.0 106.0"/>
+      <path class="reveal-stroke draw-003" pathLength="1" d="M406.0 109.0L400.0 107.0L394.0 107.0L390.0 110.0"/>
+      <path class="reveal-stroke draw-004" pathLength="1" d="M420.0 107.0L420.0 112.0L424.0 121.0L424.0 141.0L421.0 162.0L414.0 185.0L414.0 191.0"/>
+      <path class="reveal-stroke draw-005" pathLength="1" d="M334.0 156.0L328.0 152.0L317.0 150.0L316.0 151.0L308.0 152.0L298.0 158.0"/>
+      <path class="reveal-stroke draw-006" pathLength="1" d="M380.0 167.0L388.0 162.0L394.0 161.0L402.0 163.0L406.0 168.0"/>
+      <path class="reveal-stroke draw-007" pathLength="1" d="M413.0 192.0L408.0 199.0L407.0 203.0L408.0 216.0L405.0 220.0"/>
+      <path class="reveal-stroke draw-008" pathLength="1" d="M416.0 224.0L415.0 193.0L414.0 192.0"/>
+      <path class="reveal-stroke draw-009" pathLength="1" d="M258.0 196.0L261.0 211.0L259.0 240.0L252.0 271.0L249.0 278.0L241.0 288.0"/>
+      <path class="reveal-stroke draw-010" pathLength="1" d="M353.0 211.0L364.0 209.0L365.0 210.0L382.0 211.0L386.0 212.0L388.0 214.0"/>
+      <path class="reveal-stroke draw-011" pathLength="1" d="M389.0 214.0L391.0 214.0L394.0 218.0"/>
+      <path class="reveal-stroke draw-012" pathLength="1" d="M395.0 218.0L399.0 217.0L403.0 221.0"/>
+      <path class="reveal-stroke draw-013" pathLength="1" d="M393.0 219.0L389.0 219.0L388.0 218.0"/>
+      <path class="reveal-stroke draw-014" pathLength="1" d="M387.0 218.0L379.0 219.0L374.0 225.0L374.0 230.0L384.0 239.0L391.0 242.0L398.0 242.0L408.0 236.0L409.0 231.0L407.0 228.0"/>
+      <path class="reveal-stroke draw-015" pathLength="1" d="M402.0 223.0L398.0 223.0L395.0 219.0"/>
+      <path class="reveal-stroke draw-016" pathLength="1" d="M405.0 221.0L409.0 223.0"/>
+      <path class="reveal-stroke draw-017" pathLength="1" d="M406.0 227.0L403.0 224.0"/>
+      <path class="reveal-stroke draw-018" pathLength="1" d="M410.0 224.0L414.0 224.0L415.0 225.0"/>
+      <path class="reveal-stroke draw-019" pathLength="1" d="M416.0 225.0L418.0 230.0L423.0 237.0L426.0 246.0L426.0 264.0L422.0 277.0L423.0 280.0"/>
+      <path class="reveal-stroke draw-020" pathLength="1" d="M369.0 278.0L361.0 283.0L343.0 284.0L333.0 280.0L317.0 266.0L309.0 253.0L306.0 243.0"/>
+      <path class="reveal-stroke draw-021" pathLength="1" d="M420.0 285.0L420.0 283.0L422.0 281.0"/>
+      <path class="reveal-stroke draw-022" pathLength="1" d="M424.0 281.0L425.0 285.0"/>
+      <path class="reveal-stroke draw-023" pathLength="1" d="M419.0 286.0L412.0 297.0L405.0 303.0"/>
+      <path class="reveal-stroke draw-024" pathLength="1" d="M405.0 304.0L409.0 307.0L416.0 306.0L424.0 298.0L424.0 287.0"/>
+      <path class="reveal-stroke draw-025" pathLength="1" d="M240.0 289.0L233.0 293.0L227.0 294.0"/>
+      <path class="reveal-stroke draw-026" pathLength="1" d="M226.0 295.0L226.0 299.0L222.0 308.0"/>
+      <path class="reveal-stroke draw-027" pathLength="1" d="M386.0 314.0L393.0 311.0L404.0 304.0"/>
+      <path class="reveal-stroke draw-028" pathLength="1" d="M346.0 315.0L338.0 313.0L326.0 307.0"/>
+      <path class="reveal-stroke draw-029" pathLength="1" d="M348.0 315.0L353.0 315.0L354.0 316.0L374.0 316.0L375.0 315.0L383.0 315.0L385.0 314.0"/>
+      <path class="reveal-stroke draw-030" pathLength="1" d="M420.0 105.0L427.0 90.0L440.0 74.0L457.0 61.0L475.0 53.0L493.0 50.0L516.0 50.0L554.0 60.0L562.0 66.0L573.0 77.0L586.0 100.0L595.0 131.0L602.0 191.0L602.0 278.0"/>
+      <path class="reveal-stroke draw-031" pathLength="1" d="M454.0 114.0L463.0 114.0L472.0 117.0L485.0 128.0L488.0 134.0L489.0 149.0L484.0 162.0L471.0 172.0L445.0 172.0L437.0 165.0L431.0 153.0L430.0 142.0L434.0 131.0L445.0 118.0"/>
+      <path class="reveal-stroke draw-032" pathLength="1" d="M537.0 120.0L532.0 124.0L524.0 137.0L522.0 149.0L526.0 162.0L535.0 171.0L545.0 175.0L558.0 175.0L568.0 171.0L575.0 164.0L580.0 152.0L580.0 141.0L575.0 128.0L569.0 121.0L559.0 116.0L549.0 115.0"/>
+      <path class="reveal-stroke draw-033" pathLength="1" d="M553.0 244.0L536.0 254.0L517.0 260.0L486.0 259.0L469.0 254.0L457.0 247.0"/>
+      <path class="reveal-stroke draw-034" pathLength="1" d="M541.0 301.0L546.0 299.0L555.0 298.0L577.0 291.0L599.0 279.0L601.0 279.0"/>
+      <path class="reveal-stroke draw-035" pathLength="1" d="M478.0 299.0L472.0 297.0L444.0 293.0L426.0 286.0"/>
+      <path class="reveal-stroke draw-036" pathLength="1" d="M479.0 299.0L489.0 300.0L494.0 303.0L500.0 303.0L501.0 304.0L520.0 305.0L521.0 306.0L530.0 305.0"/>
+      <path class="reveal-stroke draw-037" pathLength="1" d="M478.0 300.0L478.0 323.0L479.0 324.0"/>
+      <path class="reveal-stroke draw-038" pathLength="1" d="M531.0 305.0L535.0 301.0L540.0 301.0"/>
+      <path class="reveal-stroke draw-039" pathLength="1" d="M547.0 307.0L554.0 304.0L562.0 303.0L565.0 304.0L570.0 309.0"/>
+      <path class="reveal-stroke draw-040" pathLength="1" d="M540.0 305.0L539.0 306.0L533.0 306.0"/>
+      <path class="reveal-stroke draw-041" pathLength="1" d="M542.0 305.0L547.0 307.0"/>
+      <path class="reveal-stroke draw-042" pathLength="1" d="M534.0 314.0L534.0 309.0L532.0 307.0"/>
+      <path class="reveal-stroke draw-043" pathLength="1" d="M544.0 314.0L547.0 307.0"/>
+      <path class="reveal-stroke draw-044" pathLength="1" d="M571.0 309.0L578.0 308.0L583.0 310.0L587.0 315.0L587.0 322.0"/>
+      <path class="reveal-stroke draw-045" pathLength="1" d="M552.0 313.0L548.0 317.0"/>
+      <path class="reveal-stroke draw-046" pathLength="1" d="M543.0 315.0L535.0 315.0"/>
+      <path class="reveal-stroke draw-047" pathLength="1" d="M544.0 315.0L548.0 317.0"/>
+      <path class="reveal-stroke draw-048" pathLength="1" d="M586.0 328.0L587.0 324.0"/>
+      <path class="reveal-stroke draw-049" pathLength="1" d="M360.0 331.0L351.0 332.0L313.0 320.0L241.0 290.0"/>
+      <path class="reveal-stroke draw-050" pathLength="1" d="M222.0 308.0L238.0 318.0L296.0 346.0L343.0 346.0L379.0 350.0L396.0 349.0"/>
+      <path class="reveal-stroke draw-051" pathLength="1" d="M566.0 331.0L566.0 328.0L571.0 316.0L571.0 311.0L570.0 310.0"/>
+      <path class="reveal-stroke draw-052" pathLength="1" d="M386.0 315.0L386.0 323.0L385.0 324.0L384.0 332.0"/>
+      <path class="reveal-stroke draw-053" pathLength="1" d="M360.0 330.0L355.0 324.0L348.0 319.0L347.0 316.0"/>
+      <path class="reveal-stroke draw-054" pathLength="1" d="M513.0 331.0L516.0 330.0L521.0 325.0L534.0 316.0"/>
+      <path class="reveal-stroke draw-055" pathLength="1" d="M548.0 317.0L546.0 327.0L547.0 330.0L551.0 334.0L561.0 334.0L565.0 332.0"/>
+      <path class="reveal-stroke draw-056" pathLength="1" d="M588.0 323.0L598.0 324.0L602.0 328.0L602.0 334.0"/>
+      <path class="reveal-stroke draw-057" pathLength="1" d="M512.0 331.0L510.0 329.0L490.0 328.0L485.0 325.0L480.0 324.0"/>
+      <path class="reveal-stroke draw-058" pathLength="1" d="M478.0 328.0L466.0 332.0L462.0 335.0"/>
+      <path class="reveal-stroke draw-059" pathLength="1" d="M566.0 332.0L570.0 336.0L576.0 336.0L580.0 334.0L586.0 328.0"/>
+      <path class="reveal-stroke draw-060" pathLength="1" d="M586.0 328.0L592.0 333.0L592.0 335.0"/>
+      <path class="reveal-stroke draw-061" pathLength="1" d="M480.0 337.0L479.0 329.0"/>
+      <path class="reveal-stroke draw-062" pathLength="1" d="M372.0 337.0L366.0 333.0L363.0 333.0L361.0 331.0"/>
+      <path class="reveal-stroke draw-063" pathLength="1" d="M481.0 343.0L492.0 343.0L493.0 342.0L504.0 341.0L512.0 332.0"/>
+      <path class="reveal-stroke draw-064" pathLength="1" d="M392.0 337.0L388.0 333.0L385.0 333.0"/>
+      <path class="reveal-stroke draw-065" pathLength="1" d="M384.0 334.0L383.0 335.0L384.0 339.0L390.0 339.0L391.0 338.0"/>
+      <path class="reveal-stroke draw-066" pathLength="1" d="M593.0 336.0L601.0 336.0L602.0 335.0"/>
+      <path class="reveal-stroke draw-067" pathLength="1" d="M603.0 335.0L619.0 335.0L624.0 339.0L633.0 356.0L638.0 373.0"/>
+      <path class="reveal-stroke draw-068" pathLength="1" d="M461.0 336.0L454.0 338.0L400.0 338.0L399.0 339.0"/>
+      <path class="reveal-stroke draw-069" pathLength="1" d="M462.0 337.0L463.0 338.0L479.0 338.0"/>
+      <path class="reveal-stroke draw-070" pathLength="1" d="M592.0 337.0L589.0 343.0L579.0 353.0L560.0 366.0L545.0 373.0L529.0 371.0L458.0 396.0L433.0 402.0L370.0 408.0"/>
+      <path class="reveal-stroke draw-071" pathLength="1" d="M393.0 338.0L397.0 339.0"/>
+      <path class="reveal-stroke draw-072" pathLength="1" d="M398.0 340.0L398.0 344.0L396.0 349.0"/>
+      <path class="reveal-stroke draw-073" pathLength="1" d="M396.0 349.0L399.0 351.0L434.0 351.0L443.0 349.0L466.0 348.0L479.0 343.0"/>
+      <path class="reveal-stroke draw-074" pathLength="1" d="M639.0 374.0L654.0 376.0L671.0 384.0L673.0 384.0"/>
+      <path class="reveal-stroke draw-075" pathLength="1" d="M638.0 375.0L639.0 376.0L640.0 387.0L641.0 388.0L643.0 404.0L644.0 405.0L645.0 420.0L646.0 421.0L646.0 435.0L647.0 436.0"/>
+      <path class="reveal-stroke draw-076" pathLength="1" d="M368.0 408.0L357.0 408.0L356.0 409.0L337.0 410.0L336.0 411.0L327.0 411.0L326.0 412.0L317.0 412.0L311.0 410.0L304.0 410.0"/>
+      <path class="reveal-stroke draw-077" pathLength="1" d="M567.0 412.0L565.0 414.0L567.0 476.0L629.0 476.0L628.0 412.0L605.0 411.0"/>
+      <path class="reveal-stroke draw-078" pathLength="1" d="M647.0 437.0L646.0 438.0L646.0 495.0"/>
+      <path class="reveal-stroke draw-079" pathLength="1" d="M657.0 454.0L655.0 451.0L655.0 447.0L652.0 439.0L650.0 437.0L648.0 437.0"/>
+      <path class="reveal-stroke draw-080" pathLength="1" d="M222.0 308.0L219.0 311.0L213.0 326.0L204.0 340.0L196.0 357.0L130.0 467.0L116.0 479.0L92.0 504.0"/>
+      <path class="reveal-stroke draw-081" pathLength="1" d="M367.0 557.0L366.0 511.0L371.0 457.0L369.0 409.0"/>
+      <path class="reveal-stroke draw-082" pathLength="1" d="M9.0 453.0L8.0 454.0L8.0 464.0L10.0 468.0L11.0 474.0"/>
+      <path class="reveal-stroke draw-083" pathLength="1" d="M12.0 475.0L16.0 478.0L28.0 503.0L40.0 518.0L56.0 533.0L67.0 538.0L73.0 538.0"/>
+      <path class="reveal-stroke draw-084" pathLength="1" d="M62.0 560.0L57.0 559.0L51.0 555.0L23.0 525.0L13.0 502.0L10.0 480.0L11.0 476.0"/>
+      <path class="reveal-stroke draw-085" pathLength="1" d="M91.0 505.0L90.0 509.0L79.0 525.0L75.0 538.0"/>
+      <path class="reveal-stroke draw-086" pathLength="1" d="M74.0 539.0L74.0 546.0L71.0 557.0L69.0 559.0"/>
+      <path class="reveal-stroke draw-087" pathLength="1" d="M646.0 559.0L646.0 548.0L645.0 547.0L645.0 497.0"/>
+      <path class="reveal-stroke draw-088" pathLength="1" d="M698.0 451.0L697.0 436.0L692.0 420.0L690.0 409.0L683.0 395.0L674.0 385.0"/>
+      <path class="reveal-stroke draw-089" pathLength="1" d="M658.0 454.0L666.0 457.0L687.0 457.0L697.0 452.0"/>
+      <path class="reveal-stroke draw-090" pathLength="1" d="M698.0 452.0L701.0 470.0L703.0 553.0"/>
+      <path class="reveal-stroke draw-091" pathLength="1" d="M661.0 555.0L659.0 553.0L659.0 482.0L657.0 455.0"/>
+      <path class="reveal-stroke draw-092" pathLength="1" d="M661.0 555.0L666.0 556.0L670.0 559.0L689.0 559.0L702.0 554.0"/>
+      <path class="reveal-stroke draw-093" pathLength="1" d="M661.0 555.0L660.0 559.0"/>
+      <path class="reveal-stroke draw-094" pathLength="1" d="M703.0 559.0L703.0 555.0"/>
+      <path class="final-mask-fill" d="M628 409 L602 411 L576 410 L564 412 L565 478 L629 479 L631 477 L631 426 L630 413 Z         M568 414 L575 413 L627 414 L628 424 L627 476 L587 476 L568 474 L567 433 Z         M553 244 L530 255 L515 259 L488 258 L470 253 L457 247 L460 251 L470 256 L489 261 L514 262 L525 260 L538 255 L551 248 Z         M306 243 L306 249 L311 260 L316 267 L326 277 L333 282 L345 286 L355 286 L363 284 L370 279 L370 277 L368 277 L362 281 L354 283 L345 283 L336 280 L326 273 L319 266 L313 257 Z         M380 166 L380 168 L389 163 L398 163 L402 165 L406 169 L407 166 L403 162 L396 160 L390 160 L387 161 Z         M297 159 L299 159 L307 154 L314 152 L326 153 L336 158 L335 154 L329 151 L320 149 L315 149 L307 151 L301 154 Z         M546 137 L541 139 L538 143 L538 148 L539 150 L544 154 L549 153 L553 148 L552 143 Z         M466 137 L460 139 L457 143 L457 149 L461 154 L467 154 L469 153 L472 149 L473 145 L472 141 Z         M546 114 L536 119 L531 123 L523 136 L521 143 L521 151 L525 163 L532 171 L541 176 L556 177 L568 173 L576 166 L582 151 L582 142 L577 128 L569 119 L557 114 Z         M551 117 L557 117 L563 119 L569 123 L574 129 L579 142 L579 150 L574 163 L567 170 L556 174 L547 174 L539 172 L536 170 L528 162 L525 156 L524 151 L525 139 L532 127 L537 122 L543 119 Z         M452 113 L444 117 L437 124 L430 136 L429 151 L431 157 L438 169 L443 173 L446 173 L449 175 L464 175 L473 173 L483 166 L488 158 L491 147 L490 135 L486 127 L473 116 L465 113 L457 112 Z         M453 116 L465 116 L472 119 L484 129 L487 135 L488 147 L486 155 L483 161 L478 166 L469 171 L464 172 L450 172 L444 170 L437 162 L432 151 L432 140 L436 131 L445 120 Z         M330 103 L318 102 L308 107 L304 111 L303 115 L315 106 L323 104 L327 105 Z         M571 72 L557 60 L518 49 L491 49 L468 54 L445 68 L428 86 L419 105 L411 105 L404 95 L392 85 L377 78 L356 73 L320 76 L300 84 L280 97 L267 110 L256 130 L250 152 L247 189 L242 208 L210 272 L210 283 L213 290 L225 296 L225 299 L195 356 L129 466 L94 501 L87 504 L90 506 L80 520 L73 537 L65 536 L54 530 L29 503 L29 499 L10 463 L10 455 L7 454 L12 504 L22 526 L32 539 L51 557 L62 560 L51 553 L23 522 L14 498 L12 484 L15 479 L26 502 L43 524 L56 535 L73 541 L68 560 L72 559 L83 521 L94 505 L132 467 L198 357 L223 310 L296 348 L346 348 L420 353 L463 350 L477 345 L504 343 L525 324 L537 317 L546 318 L545 329 L551 336 L565 334 L574 338 L587 330 L591 334 L591 338 L578 352 L547 371 L538 372 L530 369 L452 396 L400 405 L378 405 L324 411 L302 410 L319 414 L355 410 L368 411 L370 455 L362 560 L370 560 L368 508 L373 454 L371 409 L432 404 L460 397 L531 372 L544 375 L562 367 L575 358 L595 338 L620 337 L631 355 L639 383 L645 423 L645 560 L648 560 L647 498 L650 496 L648 495 L651 440 L657 464 L659 560 L664 557 L668 560 L691 560 L702 557 L702 560 L705 560 L703 472 L698 433 L687 398 L674 381 L672 383 L658 376 L639 372 L634 354 L623 335 L604 333 L603 326 L597 322 L589 321 L587 311 L580 307 L573 308 L564 302 L547 305 L544 301 L564 297 L600 280 L604 281 L604 193 L599 144 L587 98 Z         M698 455 L700 472 L701 550 L696 555 L688 558 L673 559 L662 553 L661 457 L668 459 L686 459 L694 455 Z         M642 375 L652 377 L672 386 L678 391 L684 399 L690 414 L691 422 L696 438 L697 449 L693 453 L686 456 L668 456 L657 452 L655 442 L652 436 L648 433 L647 414 L640 377 Z         M398 349 L401 339 L455 339 L478 342 L474 343 L472 345 L455 348 L441 348 L432 350 Z         M389 335 L389 338 L385 337 Z         M479 334 L478 337 L468 336 L467 337 L465 334 L467 334 L475 330 L478 331 Z         M482 341 L482 334 L481 333 L483 326 L488 329 L510 333 L503 340 L490 342 Z         M589 325 L597 325 L601 329 L600 335 L594 334 L588 327 Z         M580 310 L582 311 L586 316 L585 326 L579 333 L574 335 L571 335 L569 334 L568 327 L572 320 L573 310 Z         M536 313 L536 309 L538 307 L545 309 L540 314 Z         M556 305 L564 305 L569 310 L570 314 L567 324 L560 333 L552 333 L548 329 L548 323 L554 313 L551 312 L549 315 L546 314 L546 312 L549 309 Z         M479 303 L480 301 L486 301 L493 307 L515 312 L533 312 L533 315 L520 324 L515 329 L492 327 L484 324 L480 321 Z         M224 305 L229 295 L242 291 L311 321 L369 337 L373 336 L351 320 L351 317 L372 318 L381 316 L385 317 L382 340 L397 341 L395 348 L381 349 L345 345 L298 345 L227 310 Z         M386 329 L388 314 L393 313 L403 306 L406 306 L410 309 L416 308 L425 299 L427 288 L445 295 L476 300 L476 328 L470 329 L452 337 L397 338 L394 335 L387 332 Z         M423 287 L423 297 L420 301 L413 306 L407 305 L408 302 L415 296 L419 288 Z         M375 226 L380 220 L383 219 L390 220 L394 223 L402 226 L408 233 L401 239 L397 241 L393 241 L385 238 L376 230 Z         M414 196 L415 213 L414 223 L412 223 L408 221 L407 219 L410 215 L409 201 L411 198 Z         M337 76 L356 76 L386 85 L406 102 L405 107 L393 106 L390 111 L398 108 L408 113 L411 112 L409 107 L417 107 L423 123 L420 160 L406 201 L405 219 L384 210 L361 208 L352 211 L384 213 L387 217 L378 218 L372 229 L380 238 L389 243 L398 244 L404 241 L411 234 L409 229 L410 225 L421 236 L425 248 L425 262 L421 278 L409 298 L392 310 L381 314 L356 315 L325 307 L355 326 L357 331 L309 317 L243 288 L253 273 L261 238 L263 215 L261 200 L258 196 L259 231 L248 277 L239 288 L228 293 L219 291 L213 283 L215 266 L236 229 L246 205 L253 152 L264 120 L278 103 L294 91 L314 81 Z         M464 59 L489 52 L528 54 L554 62 L576 84 L585 101 L592 124 L598 160 L602 228 L601 277 L576 290 L537 300 L487 299 L446 292 L428 285 L424 276 L428 262 L428 249 L424 235 L419 229 L416 188 L426 139 L426 123 L421 106 L436 81 Z"/>
+      <path class="z-erase-stroke" pathLength="1" d="M -170 55 L 900 55 L -170 315 L 900 315 L -170 575 L 900 575"/>
+      <rect class="clear-mask" width="732" height="561"/>
+    </mask>
   </defs>
 
-  <g clip-path="url(#scene-clip)">
-    <g id="clouds" class="soft">
-      <path class="line medium cloud-line" d="M-24 92C26 60 88 63 132 91C169 57 232 57 270 95C318 82 372 97 399 132C276 133 153 133 30 132C3 132 -19 116 -24 92Z" />
-      <path class="line thin haze cloud-line" d="M76 101C119 86 165 92 197 119M220 91C258 84 296 93 321 121" />
-      <path class="line medium cloud-line" d="M701 76C750 45 811 50 850 83C896 45 958 54 992 97C1033 87 1081 101 1106 133C976 134 846 134 716 133C686 132 674 97 701 76Z" />
-      <path class="line thin haze cloud-line" d="M761 87C802 75 839 83 868 111M897 88C936 78 972 89 997 116" />
-      <path class="line thin faint cloud-line" d="M357 165C416 145 486 147 539 168C589 151 642 156 684 181" />
-    </g>
-
-    <g id="distant-flat-land">
-      <path class="line thin faint" d="M0 280C85 270 168 271 249 283C339 296 411 267 496 276C594 287 668 293 760 277C877 257 1001 273 1175 262" />
-      <path class="line thin haze" d="M0 311H1175" />
-      <path class="line thin haze" d="M54 300H206M252 302H417M789 294H943M984 293H1135" />
-    </g>
-
-    <g id="flat-trees" class="soft">
-      <path class="line medium" d="M143 381C155 349 158 318 176 284C203 313 208 349 225 381" />
-      <path class="line thin" d="M179 288C178 326 181 365 184 404M160 331C176 335 187 344 193 358M207 318C191 333 184 351 180 371M151 359C166 361 177 368 186 379" />
-      <path class="line thin" d="M467 386C481 350 486 328 504 306C527 333 534 358 551 386" />
-      <path class="line thin" d="M506 309C502 338 506 371 512 400M491 342C503 347 510 356 515 369M530 354C516 361 509 372 506 383" />
-      <path class="line thin" d="M614 386C632 348 638 319 671 292C688 331 696 357 715 386" />
-      <path class="line thin" d="M668 298C671 330 668 365 663 400M642 338C658 345 667 356 671 372M688 326C675 342 669 359 666 376M698 361C684 366 674 375 668 388" />
-      <path class="line medium" d="M981 383C994 352 993 318 1016 287C1048 314 1055 351 1068 383" />
-      <path class="line thin" d="M1018 291C1024 328 1023 367 1020 406M999 337C1014 341 1025 351 1032 365M1048 326C1033 338 1025 354 1021 374M1039 371C1027 376 1019 386 1015 399" />
-    </g>
-
-    <g id="ground">
-      <path class="line bold" d="M0 390H1175" />
-      <path class="line thin faint ground-line" d="M36 414C115 407 198 407 282 416" />
-      <path class="line thin faint ground-line" d="M332 431C436 419 547 421 651 433" />
-      <path class="line thin faint ground-line" d="M742 410C840 402 949 403 1062 414" />
-      <path class="line thin haze" d="M0 452H1175" />
-      <path class="line thin haze" d="M0 475H1175" />
-      <path class="line thin faint" d="M80 397H240M307 397H514M603 397H818M907 397H1114" />
-    </g>
-
-    <g id="rain-back" clip-path="url(#rain-ground-clip)">
-      <g class="rain" style="--dur:1.55s; --delay:-.1s; --alpha:.27; --w:.8"><use href="#rain-line" x="34" y="22" /></g>
-      <g class="rain" style="--dur:1.72s; --delay:-1.1s; --alpha:.24; --w:.8"><use href="#rain-line" x="102" y="182" /></g>
-      <g class="rain" style="--dur:1.48s; --delay:-.7s; --alpha:.3; --w:.85"><use href="#rain-line" x="172" y="62" /></g>
-      <g class="rain" style="--dur:1.69s; --delay:-1.4s; --alpha:.24; --w:.8"><use href="#rain-line" x="238" y="244" /></g>
-      <g class="rain" style="--dur:1.42s; --delay:-.3s; --alpha:.31; --w:.9"><use href="#rain-line" x="306" y="98" /></g>
-      <g class="rain" style="--dur:1.61s; --delay:-1.2s; --alpha:.26; --w:.8"><use href="#rain-line" x="374" y="284" /></g>
-      <g class="rain" style="--dur:1.5s; --delay:-.85s; --alpha:.29; --w:.85"><use href="#rain-line" x="442" y="44" /></g>
-      <g class="rain" style="--dur:1.73s; --delay:-1.5s; --alpha:.23; --w:.8"><use href="#rain-line" x="510" y="210" /></g>
-      <g class="rain" style="--dur:1.46s; --delay:-.42s; --alpha:.3; --w:.9"><use href="#rain-line" x="578" y="124" /></g>
-      <g class="rain" style="--dur:1.63s; --delay:-1.25s; --alpha:.25; --w:.8"><use href="#rain-line" x="646" y="268" /></g>
-      <g class="rain" style="--dur:1.53s; --delay:-.2s; --alpha:.28; --w:.85"><use href="#rain-line" x="714" y="54" /></g>
-      <g class="rain" style="--dur:1.7s; --delay:-1.35s; --alpha:.24; --w:.8"><use href="#rain-line" x="782" y="188" /></g>
-      <g class="rain" style="--dur:1.44s; --delay:-.64s; --alpha:.31; --w:.9"><use href="#rain-line" x="850" y="310" /></g>
-      <g class="rain" style="--dur:1.66s; --delay:-1.52s; --alpha:.25; --w:.8"><use href="#rain-line" x="918" y="88" /></g>
-      <g class="rain" style="--dur:1.49s; --delay:-.95s; --alpha:.29; --w:.85"><use href="#rain-line" x="986" y="232" /></g>
-      <g class="rain" style="--dur:1.75s; --delay:-.55s; --alpha:.23; --w:.8"><use href="#rain-line" x="1054" y="36" /></g>
-      <g class="rain" style="--dur:1.51s; --delay:-1.05s; --alpha:.29; --w:.85"><use href="#rain-line" x="1122" y="176" /></g>
-    </g>
-
-    <g id="rain-dense" clip-path="url(#rain-ground-clip)">
-      <g class="rain" style="--dur:1.02s; --delay:-.04s; --alpha:.58; --w:1.15"><use href="#rain-line" x="18" y="112" /></g>
-      <g class="rain" style="--dur:1.08s; --delay:-.6s; --alpha:.52; --w:1.05"><use href="#rain-line" x="68" y="340" /></g>
-      <g class="rain" style="--dur:.96s; --delay:-.28s; --alpha:.64; --w:1.2"><use href="#rain-line" x="118" y="204" /></g>
-      <g class="rain" style="--dur:1.12s; --delay:-.86s; --alpha:.5; --w:1"><use href="#rain-line" x="168" y="68" /></g>
-      <g class="rain" style="--dur:1.01s; --delay:-.2s; --alpha:.6; --w:1.15"><use href="#rain-line" x="218" y="422" /></g>
-      <g class="rain" style="--dur:.94s; --delay:-.54s; --alpha:.66; --w:1.25"><use href="#rain-line" x="268" y="260" /></g>
-      <g class="rain" style="--dur:1.1s; --delay:-.98s; --alpha:.52; --w:1.05"><use href="#rain-line" x="318" y="130" /></g>
-      <g class="rain" style="--dur:.99s; --delay:-.38s; --alpha:.62; --w:1.2"><use href="#rain-line" x="368" y="386" /></g>
-      <g class="rain" style="--dur:1.07s; --delay:-.72s; --alpha:.55; --w:1.1"><use href="#rain-line" x="418" y="234" /></g>
-      <g class="rain" style="--dur:.95s; --delay:-.12s; --alpha:.67; --w:1.25"><use href="#rain-line" x="468" y="96" /></g>
-      <g class="rain" style="--dur:1.13s; --delay:-.64s; --alpha:.5; --w:1"><use href="#rain-line" x="518" y="350" /></g>
-      <g class="rain" style="--dur:1s; --delay:-.31s; --alpha:.62; --w:1.2"><use href="#rain-line" x="568" y="174" /></g>
-      <g class="rain" style="--dur:1.06s; --delay:-.9s; --alpha:.56; --w:1.1"><use href="#rain-line" x="618" y="432" /></g>
-      <g class="rain" style="--dur:.97s; --delay:-.5s; --alpha:.65; --w:1.25"><use href="#rain-line" x="668" y="284" /></g>
-      <g class="rain" style="--dur:1.14s; --delay:-.08s; --alpha:.49; --w:1"><use href="#rain-line" x="718" y="118" /></g>
-      <g class="rain" style="--dur:1.03s; --delay:-.74s; --alpha:.59; --w:1.15"><use href="#rain-line" x="768" y="382" /></g>
-      <g class="rain" style="--dur:.96s; --delay:-.24s; --alpha:.66; --w:1.25"><use href="#rain-line" x="818" y="216" /></g>
-      <g class="rain" style="--dur:1.11s; --delay:-.82s; --alpha:.52; --w:1.05"><use href="#rain-line" x="868" y="72" /></g>
-      <g class="rain" style="--dur:1.02s; --delay:-.42s; --alpha:.61; --w:1.2"><use href="#rain-line" x="918" y="430" /></g>
-      <g class="rain" style="--dur:1.09s; --delay:-.16s; --alpha:.55; --w:1.1"><use href="#rain-line" x="968" y="254" /></g>
-      <g class="rain" style="--dur:.94s; --delay:-.68s; --alpha:.67; --w:1.25"><use href="#rain-line" x="1018" y="146" /></g>
-      <g class="rain" style="--dur:1.12s; --delay:-1s; --alpha:.5; --w:1"><use href="#rain-line" x="1068" y="340" /></g>
-      <g class="rain" style="--dur:1s; --delay:-.34s; --alpha:.62; --w:1.2"><use href="#rain-line" x="1118" y="198" /></g>
-      <g class="rain" style="--dur:.98s; --delay:-.78s; --alpha:.64; --w:1.2"><use href="#rain-line" x="1168" y="56" /></g>
-    </g>
-
-    <g id="rain-front">
-      <g class="rain" style="--dur:.86s; --delay:-.36s; --alpha:.82; --w:2"><line class="line" x1="86" y1="24" x2="56" y2="144" /></g>
-      <g class="rain" style="--dur:.92s; --delay:-.72s; --alpha:.74; --w:1.75"><line class="line" x1="256" y1="10" x2="226" y2="132" /></g>
-      <g class="rain" style="--dur:.84s; --delay:-.18s; --alpha:.86; --w:2.05"><line class="line" x1="404" y1="126" x2="374" y2="250" /></g>
-      <g class="rain" style="--dur:.96s; --delay:-.58s; --alpha:.73; --w:1.75"><line class="line" x1="558" y1="18" x2="528" y2="142" /></g>
-      <g class="rain" style="--dur:.88s; --delay:-.26s; --alpha:.82; --w:1.95"><line class="line" x1="718" y1="96" x2="686" y2="224" /></g>
-      <g class="rain" style="--dur:.94s; --delay:-.82s; --alpha:.76; --w:1.8"><line class="line" x1="884" y1="20" x2="852" y2="150" /></g>
-      <g class="rain" style="--dur:.85s; --delay:-.48s; --alpha:.86; --w:2.05"><line class="line" x1="1048" y1="116" x2="1016" y2="246" /></g>
-    </g>
-
-    <g id="ripple-aligned-rain" clip-path="url(#rain-ground-clip)">
-      <line class="line thin impact-drop" x1="125" y1="298" x2="95" y2="416" style="--delay:-.2s; --dur:2.35s" />
-      <line class="line thin impact-drop" x1="218" y1="326" x2="188" y2="444" style="--delay:-1.25s; --dur:2.8s" />
-      <line class="line thin impact-drop" x1="332" y1="289" x2="302" y2="407" style="--delay:-.74s; --dur:2.55s" />
-      <line class="line thin impact-drop" x1="468" y1="334" x2="438" y2="452" style="--delay:-1.72s; --dur:2.7s" />
-      <line class="line thin impact-drop" x1="578" y1="303" x2="548" y2="421" style="--delay:-.44s; --dur:2.4s" />
-      <line class="line thin impact-drop" x1="706" y1="333" x2="676" y2="451" style="--delay:-1.04s; --dur:2.76s" />
-      <line class="line thin impact-drop" x1="824" y1="293" x2="794" y2="411" style="--delay:-.08s; --dur:2.3s" />
-      <line class="line thin impact-drop" x1="948" y1="328" x2="918" y2="446" style="--delay:-1.5s; --dur:2.84s" />
-      <line class="line thin impact-drop" x1="1076" y1="300" x2="1046" y2="418" style="--delay:-.58s; --dur:2.5s" />
-    </g>
-
-    <g id="ground-ripples">
-      <g transform="translate(95 416)" style="--delay:-.2s; --dur:2.35s"><use href="#ripple-small" /></g>
-      <g transform="translate(188 444)" style="--delay:-1.25s; --dur:2.8s"><use href="#ripple-small" /></g>
-      <g transform="translate(302 407)" style="--delay:-.74s; --dur:2.55s"><use href="#ripple-small" /></g>
-      <g transform="translate(438 452)" style="--delay:-1.72s; --dur:2.7s"><use href="#ripple-small" /></g>
-      <g transform="translate(548 421)" style="--delay:-.44s; --dur:2.4s"><use href="#ripple-small" /></g>
-      <g transform="translate(676 451)" style="--delay:-1.04s; --dur:2.76s"><use href="#ripple-small" /></g>
-      <g transform="translate(794 411)" style="--delay:-.08s; --dur:2.3s"><use href="#ripple-small" /></g>
-      <g transform="translate(918 446)" style="--delay:-1.5s; --dur:2.84s"><use href="#ripple-small" /></g>
-      <g transform="translate(1046 418)" style="--delay:-.58s; --dur:2.5s"><use href="#ripple-small" /></g>
-      <ellipse class="line thin soft ripple" cx="620" cy="455" rx="70" ry="14" stroke-dasharray="24 20" style="--delay:-1.2s; --dur:3.7s" />
-      <ellipse class="line thin soft ripple" cx="1015" cy="458" rx="78" ry="15" stroke-dasharray="28 18" style="--delay:-2.1s; --dur:3.9s" />
-    </g>
-
+  <g id="animated-original-linework" mask="url(#original-line-draw-mask)">
+    <use href="#final-linework"/>
   </g>
 </svg>
