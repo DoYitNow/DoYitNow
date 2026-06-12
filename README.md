@@ -1,9 +1,9 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/rain-scene-dark.svg">
-  <img align="right" src="assets/rain-scene.svg" alt="Animated line drawing of two friends hugging" width="42%">
+  <img align="right" src="assets/rain-scene.svg" alt="Animated line drawing of two friends hugging" width="50%">
 </picture>
 
-### **Yitian Yu**
+<div><font size="6"><strong>Yitian Yu</strong></font></div>
 
 I design between **interface** and **imagination**.
 
