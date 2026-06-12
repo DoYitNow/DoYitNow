@@ -1,4 +1,4 @@
-# Yitian Yu
+### Yitian Yu
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/rain-scene-dark.svg">
@@ -12,5 +12,3 @@ Shanghai-based **HCI researcher**, **full-stack AI developer**, and **visual art
 I explore **embodied**, **multimodal**, and **emotionally aware** human–AI symbiosis.
 
 Drawn to **cultural technology**, **accessibility**, and **small acts of care**.
-
-<br clear="right">
