@@ -3,9 +3,9 @@
   <img align="right" src="assets/rain-scene.svg" alt="Animated line drawing of two friends hugging" width="30%">
 </picture>
 
-I design between **interface** and **imagination**.
-
 **Shanghai / Beijing** · **HCI researcher** · **full-stack AI enthusiast** · **visual artist**
+
+I design between **interface** and **imagination**.
 
 I explore **embodied**, **multimodal**, and **emotionally aware** human–AI symbiosis.
 
