@@ -5,7 +5,7 @@
 
 I design between **interface** and **imagination**.
 
-Shanghai-based **HCI researcher**, **full-stack AI enthusiast**, and **visual artist**.
+Based between **Shanghai** and **Beijing**: **HCI researcher**, **full-stack AI enthusiast**, and **visual artist**.
 
 I explore **embodied**, **multimodal**, and **emotionally aware** human–AI symbiosis.
 
