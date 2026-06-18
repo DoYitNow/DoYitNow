@@ -1,0 +1,7 @@
+interface:
+  display_name: "Image To SVG"
+  short_description: "Convert images into clean SVG, choosing source-aligned vectorization for photos and handcrafted structure for simpler graphics."
+  brand_color: "#2563EB"
+  default_prompt: "Use $image-to-svg to convert this reference image into a clean, self-contained SVG while preserving the source composition."
+policy:
+  allow_implicit_invocation: true
